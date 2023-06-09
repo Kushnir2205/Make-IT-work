@@ -42,11 +42,9 @@
   border-width: 2px;
   border-color: var(--categories-links-active-color);
   margin-left: auto;
-  /* margin-bottom: 40px; */
-}
-.btn-loadmore-wrapper {
   margin-bottom: 40px;
 }
+
 @media only screen and (min-width: 768px) {
   .hero-heading {
     font-size: 48px;
