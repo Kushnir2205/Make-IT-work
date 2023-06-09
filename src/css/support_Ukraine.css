@@ -1,22 +1,18 @@
-
     @media screen and (min-width: 374px) {
-        .support__container {
-          width: 335px;
-     
-  
-    margin-left: auto;
-    padding-top: 24px;
-    padding-bottom: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    .support__container {
+      width: 335px;
+      margin-left: auto;
+      padding-top: 24px;
+      padding-bottom: 20px;
+      padding-left: 40px;
+      padding-right: 40px;
   
     background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
     box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
     border-radius: 16px;
-}
+    }
 }
 
-    
 @media screen and (min-width: 375px) and (max-width: 1023px) {
     .support__container {
       width: 335px;
@@ -24,8 +20,8 @@
 }
   
     @media screen and (min-width: 1024px) {
-        .support__container {
-        margin: 0;
+    .support__container {
+      margin: 0;
       min-width: 335px;
       max-width: 356px;
     }
@@ -39,9 +35,7 @@
   
   .support__title {
     width: 205px;
-    display: flex;
-  justify-content: center;
-  align-items: center;
+
   
     font-family: 'DM Sans';
     font-style: normal;
@@ -53,30 +47,26 @@
     
   }
   
-  .support__icon {
+  .support-icon {
     fill: #ffffff;
   }
   
-  .swiper-container {
+  .swiper-div {
     height: 200px;
     overflow: hidden;
     margin-bottom: 32px;
   }
 
     @media screen and (min-width: 375px) and (max-width: 1023px) {
-        .swiper-container {
+        .swiper-div {
             height: 299px;
             margin-bottom: 40px;;
         }
     }
-  
-    /* @media only screen and (min-width: 375px) and (max-width: 1023px) {
-      height: 299px;
-      margin-bottom: 40px;
-    } */
+
   
   
-  .logoContainer {
+  .forLogoDiv {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -130,7 +120,7 @@
   
   .my-class:hover .swiper-button-next,
   .my-class:focus .swiper-button-next {
-    background-color: red;
+    background-color: rgb(236, 221, 184);
   }
   
   
@@ -146,21 +136,10 @@
     filter: brightness(60%) sepia(80) saturate(5) hue-rotate(5deg);
   }
   
-  .swiper-button-next__icon {
+  .swip-btn-second-icon {
     fill: #4f2ee8;
     transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   
-  .support__container.shopping__charity.charity {
-    display: none;
-  }
-  
-    @media screen and (min-width: 1024px) {
-        .support__container.shopping__charity.charity {
-      width: 356px;
-      display: block;
-      height: 490px;
-        }
-    }
   
   
