@@ -1,0 +1,88 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+  --white-color: #ffffff;
+  --black-color: #111111;
+  --categories-links-active-color: #4f2ee8;
+  --links-color: rgba(17, 17, 17, 0.6);
+  --main-bg-color: #d0d0d0;
+  --scrollbar-color: #e0e0e0;
+  --scrollbar-hower-bg-color: #d2d2d2;
+  --autorization-form-btn-text-color: #f3f3f3;
+  --shopping-list-text-color: rgba(0, 0, 0, 0.6);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--body-bg-color);
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* ul,
+ol {
+  list-style: none;
+} */
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
