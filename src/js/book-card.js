@@ -53,45 +53,82 @@ import {
 } from './api-get.js';
 
 const heroRefs = {
+  hero: document.querySelector('.bookslist-wrapper'),
   topBooksCategoriesList: document.querySelectorAll('.category-preview-books'),
   openCategoryBtn: document.querySelectorAll('.loadmore-btn'),
 };
 
-async function createMarkup() {
-  const resp = await getTopBooks();
-  const dataArr = resp.data;
-  console.log(dataArr);
-  dataArr.forEach(element => {
-    const categoryList = document.createElement('ul');
+// async function createMarkup() {
+//   const resp = await getTopBooks();
+//   const dataArr = resp.data;
+//   console.log(dataArr);
+//   dataArr.forEach(element => {
+//     const categoryList = document.createElement('ul');
 
-    const books = element.books
+//     const books = element.books
 
-      .map(
-        book =>
-          `<li class="book-card">
+//       .map(
+//         book =>
+//           `<li class="book-card">
+//               <a
+//                 href="https://google.com"
+//                 class="book-link"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//               >
+//                 <img
+//                   src="${book.book_image}"
+//                   alt="${book.title}"
+//                   class="book-photo"
+//                 />
+//                 <h2 class="book-name">${book.title}</h2>
+//                 <h3 class="author-name">${book.author}</h3>
+//               </a>
+//             </li>`
+//       )
+//       .join('');
+
+//     categoryList.innerHTML = books;
+//     heroRefs.topBooksCategoriesList.forEach(list => {
+//       list.innerHTML = books;
+//     });
+//   });
+// }
+let e = 1;
+async function getCategoryMarkup(e, category) {
+  // e.preventDefault();
+  // if (!e.target.classList.contains('btn-loadmore')) {
+  //   return;
+  // }
+
+  // const categ = category.ToLowerCase();
+  const resp = await getAllCategory(category);
+  const data = resp.data;
+  console.log(data);
+  const categoryBooksMarkup = data
+    .map(
+      categoryBook => `<li class="book-card">
               <a
-                href="https://google.com"
-                class="book-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="${book.book_image}"
-                  alt="${book.title}"
+               href="https://google.com"
+                 class="book-link"
+                 target="_blank"
+                 rel="noopener noreferrer"
+               >
+                 <img
+                   src="${categoryBook.book_image}"
+                  alt="${categoryBook.title}"
                   class="book-photo"
-                />
-                <h2 class="book-name">${book.title}</h2>
-                <h3 class="author-name">${book.author}</h3>
-              </a>
+                 />
+                 <h2 class="book-name">${categoryBook.title}</h2>
+                <h3 class="author-name">${categoryBook.author}</h3>
+               </a>
             </li>`
-      )
-      .join('');
-
-    categoryList.innerHTML = books;
-    heroRefs.topBooksCategoriesList.forEach(list => {
-      list.innerHTML = books;
-    });
-  });
+    )
+    .join('');
+  heroRefs.hero.innerHTML = `<h1 class="hero-heading">${category}</h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
+  console.log(categoryBooksMarkup);
 }
 
-createMarkup();
+// getCategoryMarkup(e, 'Hardcover Nonfiction');
+
+export { getCategoryMarkup };
