@@ -85,6 +85,15 @@
   }
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .book-card {
+    display: none;
+  }
+  .book-card:nth-child(-n + 3) {
+    display: block;
+  }
+}
+
 @media only screen and (min-width: 1440px) {
   .category-preview-books {
     margin-bottom: 20px;
