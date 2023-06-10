@@ -142,4 +142,43 @@
   }
   
   
-  
+  /* MOBILE */
+  @media screen and (min-width: 320px) {
+  .support__container {
+    width: 335px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .support__title {
+    width: 175px;
+    font-size: 24px;
+  }
+
+  .swiper-div {
+    height: 180px;
+    margin-bottom: 24px;
+  }
+
+  .forLogoDiv {
+    gap: 16px;
+  }
+
+  .logo__item {
+    height: 28px;
+  }
+
+  .buttonSlider {
+    width: 28px;
+    height: 28px;
+  }
+
+  .swiper-button-next {
+    width: 32px;
+    height: 32px;
+  }
+
+  .fund-item p {
+    font-size: 12px;
+  }
+}
