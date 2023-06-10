@@ -94,6 +94,7 @@ const heroRefs = {
 //     });
 //   });
 // }
+
 let e = 1;
 async function getCategoryMarkup(e, category) {
   // e.preventDefault();
