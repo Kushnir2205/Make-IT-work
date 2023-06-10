@@ -16,6 +16,7 @@
   color: var(--black-color);
   font-size: 16px;
   margin-bottom: 4px;
+  text-transform: uppercase;
 }
 .author-name {
   color: #b4afaf;
