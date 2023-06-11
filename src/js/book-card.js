@@ -51,6 +51,9 @@ async function getCategoryMarkup(category) {
   const resp = await getAllCategory(category);
   const data = resp.data;
   // console.log(data);
+  if ((data, length === 0)) {
+    return alert('Sorry, we havenot found books in this category');
+  }
   const categoryBooksMarkup = data
     .map(
       categoryBook => `<li class="book-card">
@@ -71,6 +74,7 @@ async function getCategoryMarkup(category) {
             </li>`
     )
     .join('');
+
   const h1arr = category.split(' ');
   const lastWord = h1arr.splice(h1arr.length - 1, 1).join('');
   console.log(h1arr);
