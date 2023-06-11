@@ -82,19 +82,19 @@
   margin-left: auto;
 }
 @media only screen and (max-width: 767px) {
-  .book-card {
+  .prewiew.book-card {
     display: none;
   }
-  .book-card:first-child {
+  .prewiew.book-card:first-child {
     display: block;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1439px) {
-  .book-card {
+  .prewiew.book-card {
     display: none;
   }
-  .book-card:nth-child(-n + 3) {
+  .prewiew.book-card:nth-child(-n + 3) {
     display: block;
   }
 }
