@@ -31,12 +31,18 @@
 .book-photo {
   margin-bottom: 14px;
   border-radius: 8px;
-  width: 100%;
+  width: 335px;
 }
-/* @media only screen and (min-width: 320px) {
-   {
+@media only screen and (min-width: 768px) {
+  .book-photo {
+    width: 218px;
   }
-} */
+}
+@media only screen and (min-width: 1440px) {
+  .book-photo {
+    width: 180px;
+  }
+}
 
 .btn-loadmore {
   display: block;
