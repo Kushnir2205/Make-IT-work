@@ -55,7 +55,7 @@ import {
 const heroRefs = {
   hero: document.querySelector('.bookslist-wrapper'),
   topBooksCategoriesList: document.querySelectorAll('.category-preview-books'),
-  openCategoryBtn: document.querySelectorAll('.loadmore-btn'),
+  openCategoryBtn: document.querySelectorAll('.btn-loadmore'),
 };
 
 // async function createMarkup() {
@@ -95,13 +95,7 @@ const heroRefs = {
 //   });
 // }
 
-let e = 1;
-async function getCategoryMarkup(e, category) {
-  // e.preventDefault();
-  // if (!e.target.classList.contains('btn-loadmore')) {
-  //   return;
-  // }
-
+async function getCategoryMarkup(category) {
   // const categ = category.ToLowerCase();
   const resp = await getAllCategory(category);
   const data = resp.data;
@@ -129,7 +123,20 @@ async function getCategoryMarkup(e, category) {
   heroRefs.hero.innerHTML = `<h1 class="hero-heading">${category}</h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
   console.log(categoryBooksMarkup);
 }
+function btnCategoryChanger(e) {
+  e.preventDefault();
+  if (!e.target.classList.contains('btn-loadmore')) {
+    return;
+  }
+  console.log(1);
+  const cat = document.querySelector('.category-preview-name').textContent;
+  console.log(cat);
 
+  getCategoryMarkup(cat);
+}
+heroRefs.openCategoryBtn.forEach(btn =>
+  btn.addEventListener('click', btnCategoryChanger)
+);
 // getCategoryMarkup(e, 'Hardcover Nonfiction');
 
 export { getCategoryMarkup };
