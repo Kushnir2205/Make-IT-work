@@ -50,7 +50,7 @@ async function getCategoryMarkup(category) {
   // console.log(h1arr);
   // console.log(lastWord);
   heroRefs.hero.innerHTML = `<h1 class="hero-heading">${
-    h1arr.join() + ' '
+    h1arr.join(' ') + ' '
   }<span class="heading-painter">${lastWord}</span> </h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
   // console.log(categoryBooksMarkup);
 }
