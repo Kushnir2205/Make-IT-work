@@ -7,51 +7,14 @@ const heroRefs = {
   cat: document.querySelectorAll('.category-preview-name'),
 };
 
-// async function createMarkup() {
-//   const resp = await getTopBooks();
-//   const dataArr = resp.data;
-//   console.log(dataArr);
-//   dataArr.forEach(element => {
-//     const categoryList = document.createElement('ul');
-
-//     const books = element.books
-
-//       .map(
-//         book =>
-//           `<li class="book-card">
-//               <a
-//                 href="https://google.com"
-//                 class="book-link"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//               >
-//                 <img
-//                   src="${book.book_image}"
-//                   alt="${book.title}"
-//                   class="book-photo"
-//                 />
-//                 <h2 class="book-name">${book.title}</h2>
-//                 <h3 class="author-name">${book.author}</h3>
-//               </a>
-//             </li>`
-//       )
-//       .join('');
-
-//     categoryList.innerHTML = books;
-//     heroRefs.topBooksCategoriesList.forEach(list => {
-//       list.innerHTML = books;
-//     });
-//   });
-// }
-
-//creating a markup of category
-
 async function contentLoad() {
   const resp = await getTopBooks();
   const data = resp.data;
-  console.log(resp.data);
+  console.log(data);
 }
 contentLoad();
+
+//creating a markup of category
 
 async function getCategoryMarkup(category) {
   // const categ = category.ToLowerCase();
