@@ -49,8 +49,7 @@ const heroRefs = {
 async function contentLoad() {
   const resp = await getTopBooks();
   const data = resp.data;
-  console.log(data);
-  data.forEach(categ => console.log(categ.books));
+  console.log(resp.data);
 }
 contentLoad();
 
@@ -85,8 +84,8 @@ async function getCategoryMarkup(category) {
 
   const h1arr = category.split(' ');
   const lastWord = h1arr.splice(h1arr.length - 1, 1).join('');
-  console.log(h1arr);
-  console.log(lastWord);
+  // console.log(h1arr);
+  // console.log(lastWord);
   heroRefs.hero.innerHTML = `<h1 class="hero-heading">${
     h1arr.join() + ' '
   }<span class="heading-painter">${lastWord}</span> </h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
