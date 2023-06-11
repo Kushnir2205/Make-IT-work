@@ -99,7 +99,7 @@ async function getCategoryMarkup(category) {
   // const categ = category.ToLowerCase();
   const resp = await getAllCategory(category);
   const data = resp.data;
-  console.log(data);
+  // console.log(data);
   const categoryBooksMarkup = data
     .map(
       categoryBook => `<li class="book-card">
@@ -120,17 +120,23 @@ async function getCategoryMarkup(category) {
             </li>`
     )
     .join('');
-  heroRefs.hero.innerHTML = `<h1 class="hero-heading">${category}</h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
-  console.log(categoryBooksMarkup);
+  const h1arr = category.split(' ');
+  const lastWord = h1arr.splice(h1arr.length - 1, 1).join('');
+  console.log(h1arr);
+  console.log(lastWord);
+  heroRefs.hero.innerHTML = `<h1 class="hero-heading">${
+    h1arr.join() + ' '
+  }<span class="heading-painter">${lastWord}</span> </h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
+  // console.log(categoryBooksMarkup);
 }
 function btnCategoryChanger(e) {
   e.preventDefault();
   if (!e.target.classList.contains('btn-loadmore')) {
     return;
   }
-  console.log(1);
+
   const cat = document.querySelector('.category-preview-name').textContent;
-  console.log(cat);
+  // console.log(cat);
 
   getCategoryMarkup(cat);
 }
