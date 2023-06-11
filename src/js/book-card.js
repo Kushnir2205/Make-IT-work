@@ -5,19 +5,59 @@ const heroRefs = {
   topBooksCategoriesList: document.querySelectorAll('.category-preview-books'),
   openCategoryBtn: document.querySelectorAll('.btn-loadmore-book-wraper'),
   cat: document.querySelectorAll('.category-preview-name'),
+  catsList: document.querySelector('.categories-prewiews'),
 };
 
 async function contentLoad() {
   const resp = await getTopBooks();
   const data = resp.data;
   console.log(data);
+  const homeMarkup = data
+    .map(category => {
+      const books = category.books.slice(0, 5); // Обмежуємо кількість книг до 5
+      return (
+        `<li class="cateory-preview books-list">
+          <p class="category-preview-name">${category.list_name}</p>
+          <ul class="category-preview-books">` +
+        books
+          .map(
+            book =>
+              `<li class="book-card prewiew">
+                <a
+                  href="${book.book_uri}"
+                  class="book-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  
+                >
+                  <img
+                    src="${book.book_image}"
+                    alt="${book.title}"
+                    class="book-photo books-list-img"
+                    data-id ="${book._id}"
+                  />
+                  <h2 class="book-name">${book.title}</h2>
+                  <h3 class="author-name">${book.author}</h3>
+                </a>
+              </li>`
+          )
+          .join('') +
+        `</ul>
+         <li class="btn-loadmore-book-wraper">
+            <button type="button" class="btn-loadmore">see more</button>
+          </li>
+      </li>`
+      );
+    })
+    .join('');
+  heroRefs.catsList.innerHTML = homeMarkup;
 }
+
 contentLoad();
 
 //creating a markup of category
 
 async function getCategoryMarkup(category) {
-  // const categ = category.ToLowerCase();
   const resp = await getAllCategory(category);
   const data = resp.data;
   // console.log(data);
@@ -50,23 +90,28 @@ async function getCategoryMarkup(category) {
   // console.log(h1arr);
   // console.log(lastWord);
   heroRefs.hero.innerHTML = `<h1 class="hero-heading">${
-    h1arr.join() + ' '
+    h1arr.join(' ') + ' '
   }<span class="heading-painter">${lastWord}</span> </h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
   // console.log(categoryBooksMarkup);
 }
 function btnCategoryChanger(e) {
-  e.preventDefault();
-  if (!e.target.classList.contains('btn-loadmore')) {
-    return;
-  }
+  console.log(1);
 
-  const cat = e.currentTarget.previousSibling.firstElementChild.textContent;
-  console.log(cat);
-  getCategoryMarkup(cat);
+  // e.preventDefault();
+  // if (!e.currentTarget.classList.contains('btn-loadmore')) {
+  //   return;
+  // }
+  // const cat = e.currentTarget.previousSibling.firstElementChild.textContent;
+  // console.log(cat);
+  // getCategoryMarkup(cat);
 }
-heroRefs.openCategoryBtn.forEach(btn =>
-  btn.addEventListener('click', btnCategoryChanger)
-);
-// getCategoryMarkup(e, 'Hardcover Nonfiction');
+
+// heroRefs.openCategoryBtn.forEach(btn =>
+//   btn.addEventListener('click', btnCategoryChanger)
+// );
+// document;
+document
+  .querySelector('.btn-loadmore')
+  .addEventListener('click', btnCategoryChanger);
 
 export { getCategoryMarkup };
