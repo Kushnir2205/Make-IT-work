@@ -30,6 +30,8 @@
 }
 .book-photo {
   margin-bottom: 14px;
+  border-radius: 8px;
+  width: 100%;
 }
 /* @media only screen and (min-width: 320px) {
    {
@@ -59,10 +61,13 @@
   .hero-heading {
     font-size: 48px;
   }
-  .category-preview-books {
+  .category-preview-books,
+  .category-all-books {
     margin-bottom: 32px;
     display: flex;
-    gap: 25px;
+    gap: 24px;
+    flex-wrap: wrap;
+    column-gap: 40px;
   }
   .book-card {
     max-width: 218px;
@@ -77,10 +82,24 @@
   margin-left: auto;
 }
 @media only screen and (max-width: 767px) {
-  .book-card {
+  .prewiew.book-card {
     display: none;
   }
-  .book-card:first-child {
+  .prewiew.book-card:first-child {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .category-preview-books,
+  .category-all-books {
+    /* flex-wrap: nowrap; */
+    row-count: 3;
+  }
+  .prewiew.book-card {
+    display: none;
+  }
+  .prewiew.book-card:nth-child(-n + 3) {
     display: block;
   }
 }
