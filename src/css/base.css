@@ -86,3 +86,11 @@ a {
     padding-right: 24px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .flex{
+    display: flex;
+  gap: 40px;
+  }
+    
+}

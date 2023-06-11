@@ -91,11 +91,8 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1439px) {
-  .category-preview-books,
-  .category-all-books {
-    /* flex-wrap: nowrap; */
-    row-count: 3;
-  }
+  
+ 
   .prewiew.book-card {
     display: none;
   }
