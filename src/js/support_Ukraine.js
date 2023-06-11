@@ -24,7 +24,7 @@ const pngSupport = [
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
     img: found1,
     img2: found1x,
-    width: 154,
+    width: 129,
     height: 32,
   },
   {
@@ -32,7 +32,7 @@ const pngSupport = [
     url: 'https://www.projecthope.org/country/ukraine/',
     img: found2,
     img2: found2x,
-    width: 71,
+    width: 62,
     height: 32,
   },
   {
@@ -40,7 +40,7 @@ const pngSupport = [
     url: 'https://u24.gov.ua/uk',
     img: found3,
     img2: found3x,
-    width: 219,
+    width: 101,
     height: 32,
   },
   {
@@ -48,7 +48,7 @@ const pngSupport = [
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
     img: found4,
     img2: found4x,
-    width: 136,
+    width: 82,
     height: 32,
   },
   {
@@ -95,6 +95,17 @@ const pngSupport = [
 
 const forLogoDiv = document.querySelector('.forLogoDiv'); // Отримання посилання на елемент з класом 'logoContainer' у документі
 
+function makeImagesWhite() {
+  const logoImages = document.querySelectorAll('logo__img'); // Отримання всіх зображень з класом 'logo__img'
+
+  logoImages.forEach((image) => {
+    image.style.filter = 'brightness(100)'; // Встановлення кольорового фільтру 'brightness(100)' для зображень
+  });
+}
+
+makeImagesWhite();
+
+
 function renderingOurLogos() {
   const markup = pngSupport   // Використання методу map для створення нового масиву на основі pngSupport
     .map(({ title, url, img, img2, width, height }, index) => {
@@ -104,7 +115,7 @@ function renderingOurLogos() {
       <a href="${url}" class="logo__img"  target="_blank" crossorigin="anonymous"  rel="noopener noreferrer nofollow" aria-label="${title}" >
       <picture>
       <source srcset="${img}, ${img2} 2x" />
-      <img src="${img}" alt="${title}" loading="lazy" width="${width}" height="${height}">
+      <img src="${img}" alt="${title}" loading="lazy" width="${width}" height="${height}" style="filter: brightness(100)">
     </picture>
       </a></div>
   `;
@@ -114,3 +125,14 @@ function renderingOurLogos() {
 }
 
 renderingOurLogos(); // Виклик функції renderingOurLogos для виконання рендерингу благодійних фондів у контейнері
+
+
+const scrollButton = document.querySelector('.swiper-button-next'); // Отримання посилання на кнопку з класом 'swiper-button-next' 
+const supportList = document.querySelector('.forLogoDiv'); // Отримання посилання на елемент з класом 'forLogoDiv'
+
+scrollButton.addEventListener('click', () => {
+  supportList.lastElementChild.scrollIntoView({
+    behavior: 'smooth', // Плавна анімація
+    block: 'end', // Прокрутка до кінця списку
+  });
+});
