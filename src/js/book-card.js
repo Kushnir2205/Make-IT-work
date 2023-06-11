@@ -46,12 +46,20 @@ const heroRefs = {
 
 //creating a markup of category
 
+async function contentLoad() {
+  const resp = await getTopBooks();
+  const data = resp.data;
+  console.log(data);
+  data.forEach(categ => console.log(categ.books));
+}
+contentLoad();
+
 async function getCategoryMarkup(category) {
   // const categ = category.ToLowerCase();
   const resp = await getAllCategory(category);
   const data = resp.data;
   // console.log(data);
-  if ((data, length === 0)) {
+  if (data.length === 0) {
     return alert('Sorry, we havenot found books in this category');
   }
   const categoryBooksMarkup = data
@@ -100,5 +108,3 @@ heroRefs.openCategoryBtn.forEach(btn =>
 // getCategoryMarkup(e, 'Hardcover Nonfiction');
 
 export { getCategoryMarkup };
-
-async function contentLoad() {}
