@@ -1,4 +1,5 @@
 import { getCategoriesList } from './api-get'
+import {getCategoryMarkup} from './book-card'
 
 // const categories = document.querySelector('.categories')
 // const itemEl = document.querySelector('.item')
@@ -55,10 +56,10 @@ categoriesListEl()
   | подія по кліку (вибір категорії)
   |============================
 */
-const onEventCategories = (event) => {
+const onEventCategories = async (event) => {
     event.preventDefault()
     const listItemEl = event.target
-
+    // console.log(listItemEl);
     if (listItemEl.nodeName !== 'LI' && listItemEl.nodeName !== 'A') {
         return
     }
@@ -69,8 +70,18 @@ const onEventCategories = (event) => {
     // console.dir(event.target);
     listItemEl.classList.add('title-categories')
     preItemEl = listItemEl
+  
+  try {
+      
+      await getCategoryMarkup(listItemEl.textContent)
+    }
+    catch (err) {
+      console.log(err);
+    }
+    
+    // console.log(data);
+    // return getCategoryMarkup(data)
+
 }
-
-
 
 categoriesList.addEventListener('click', onEventCategories)
