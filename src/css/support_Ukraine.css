@@ -1,42 +1,39 @@
-    @media screen and (min-width: 374px) {
-    .support__container {
-      width: 335px;
-      margin-left: auto;
+
+@media only screen and (min-width: 768px) and (max-width: 1198px) {
+  .support-container {
+    width: 335px;
+    height: 472px;
+    margin-left: auto;
       padding-top: 24px;
       padding-bottom: 20px;
       padding-left: 40px;
       padding-right: 40px;
-  
-    background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
-    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-    border-radius: 16px;
-    }
+      background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
+      box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+      border-radius: 16px;
+  }
 }
-
-@media screen and (min-width: 375px) and (max-width: 1023px) {
-    .support__container {
-      width: 335px;
-    }
+@media only screen and (min-width: 1200px) {
+  .support-container {
+    width: 356px;
+    height: 490px;
+    margin-left: auto;
+      padding-top: 24px;
+      padding-bottom: 20px;
+      padding-left: 40px;
+      padding-right: 40px;
+      background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
+      box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+      border-radius: 16px;
+  }
 }
-  
-    @media screen and (min-width: 1024px) {
-    .support__container {
-      margin: 0;
-      min-width: 335px;
-      max-width: 356px;
-    }
-}
-
   .wrapper {
     display: flex;
     gap: 12px;
     margin-bottom: 40px;
   }
-  
-  .support__title {
+  .support-title {
     width: 205px;
-
-  
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 700;
@@ -44,12 +41,11 @@
     line-height: 1.14;
     letter-spacing: -0.04em;
     color: #ffffff;
-    
   }
   
-  .support-icon {
+  /* .support-icon {
     fill: #ffffff;
-  }
+  } */
   
   .swiper-div {
     height: 200px;
@@ -57,15 +53,13 @@
     margin-bottom: 32px;
   }
 
-    @media screen and (min-width: 375px) and (max-width: 1023px) {
+  @media screen and (min-width: 320px) and (max-width: 1198px) {
         .swiper-div {
             height: 299px;
             margin-bottom: 40px;;
         }
     }
 
-  
-  
   .forLogoDiv {
     display: flex;
     flex-direction: column;
@@ -123,6 +117,9 @@
     background-color: rgb(236, 221, 184);
   }
   
+  .fund-item p {
+    font-size: 14px;
+  }
   
   .fund-item p,
   .fund-item .logo__img {
@@ -136,36 +133,30 @@
     filter: brightness(60%) sepia(80) saturate(5) hue-rotate(5deg);
   }
   
-  .swip-btn-second-icon {
-    fill: #4f2ee8;
-    transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-  
   
   /* MOBILE */
-  @media screen and (min-width: 320px) {
-  .support__container {
-    width: 335px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+@media screen and (min-width: 320px) and (max-width: 767px) {
+      .support-container {
+        max-width: 335px;
+        height: 352px;
+        margin-left: auto;
+        padding-top: 24px;
+        padding-bottom: 20px;
+        padding-left: 40px;
+        padding-right: 20px;
+        background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
+        box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+        border-radius: 16px;
+      }
 
-  .support__title {
-    width: 175px;
-    font-size: 24px;
+  .support-title {
+    width: 205px;
+    font-size: 28px;
   }
 
   .swiper-div {
     height: 180px;
     margin-bottom: 24px;
-  }
-
-  .forLogoDiv {
-    gap: 16px;
-  }
-
-  .logo__item {
-    height: 28px;
   }
 
   .buttonSlider {
@@ -178,7 +169,45 @@
     height: 32px;
   }
 
-  .fund-item p {
-    font-size: 12px;
+
+}
+/* TABLET */
+@media only screen and (min-width: 768px) and (max-width: 1198px) {
+    .support-container {
+      width: 335px;
+      height: 472px;
+      margin-left: auto;
+        padding-top: 24px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
+        box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+        border-radius: 16px;
+    }
+  
+  .support-title {
+    width: 205px;
+    font-size: 28px;
   }
+
+  .swiper-div {
+    height: 200px;
+    margin-bottom: 32px;
+  }
+
+  .forLogoDiv {
+    gap: 20px;
+  }
+
+  .buttonSlider {
+    width: 32px;
+    height: 32px;
+  }
+
+  .swiper-button-next {
+    width: 38px;
+    height: 38px;
+  }
+
 }
