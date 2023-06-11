@@ -24,7 +24,7 @@ const pngSupport = [
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
     img: found1,
     img2: found1x,
-    width: 129,
+    width: 131,
     height: 32,
   },
   {
@@ -33,62 +33,62 @@ const pngSupport = [
     img: found2,
     img2: found2x,
     width: 62,
-    height: 32,
-  },
-  {
-    title: 'UNITED24',
-    url: 'https://u24.gov.ua/uk',
-    img: found3,
-    img2: found3x,
-    width: 101,
-    height: 32,
+    height: 33,
   },
   {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
-    img: found4,
-    img2: found4x,
+    img: found3,
+    img2: found3x,
     width: 82,
-    height: 32,
-  },
-  {
-    title: 'Medicins Sans Frontieres',
-    url: 'https://www.msf.org/ukraine',
-    img: found5,
-    img2: found5x,
-    width: 76,
-    height: 32,
+    height: 28,
   },
   {
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
-    img: found6,
-    img2: found6x,
-    width: 96,
-    height: 32,
+    img: found4,
+    img2: found4x,
+    width: 82,
+    height: 28,
   },
   {
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    img: found7,
-    img2: found7x,
-    width: 57,
-    height: 32,
-  },
-  {
-    title: 'World vision',
-    url: 'https://www.wvi.org/emergencies/ukraine',
-    img: found8,
-    img2: found8x,
-    width: 106,
-    height: 32,
+    img: found5,
+    img2: found5x,
+    width: 55,
+    height: 35,
   },
   {
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
+    img: found6,
+    img2: found6x,
+    width: 115,
+    height: 36,
+  },
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: found7,
+    img2: found7x,
+    width: 90,
+    height: 30,
+  },
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: found8,
+    img2: found8x,
+    width: 60,
+    height: 20,
+  },
+  {
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
     img: found9,
     img2: found9x,
-    width: 180,
+    width: 100,
     height: 32,
   },
 ];
@@ -127,12 +127,14 @@ function renderingOurLogos() {
 renderingOurLogos(); // Виклик функції renderingOurLogos для виконання рендерингу благодійних фондів у контейнері
 
 
-const scrollButton = document.querySelector('.swiper-button-next'); // Отримання посилання на кнопку з класом 'swiper-button-next' 
-const supportList = document.querySelector('.forLogoDiv'); // Отримання посилання на елемент з класом 'forLogoDiv'
+const logoContainer = document.querySelector('.forLogoDiv'); // Отримання посилання на елемент з класом 'forLogoDiv'
+const scrollButton = document.querySelector('.swiper-button-next'); // Отримання посилання на елемент з класом 'swiper-button-next' у документі
 
 scrollButton.addEventListener('click', () => {
-  supportList.lastElementChild.scrollIntoView({
-    behavior: 'smooth', // Плавна анімація
-    block: 'end', // Прокрутка до кінця списку
-  });
+  const firstLogoItem = logoContainer.firstElementChild; // Отримання першого елемента списку
+  logoContainer.appendChild(firstLogoItem); // Переміщення першого елемента в кінець списку
 });
+
+
+
+
