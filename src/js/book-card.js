@@ -51,7 +51,10 @@ async function contentLoad() {
     .join('');
   heroRefs.catsList.classList.remove('category-all-books');
   heroRefs.catsList.classList.add('categories-prewiews', 'books-list-top');
+  heroRefs.her;
   heroRefs.catsList.innerHTML = `${homeMarkup}`;
+  document.querySelector('.hero-heading').innerHTML =
+    '<h1 class="hero-heading">Best Sellers<span class="heading-painter">Books</span> </h1>';
   setTimeout(() => {
     heroRefs.openCategoryBtn = document.querySelectorAll('.btn-loadmore');
     heroRefs.openCategoryBtn.forEach(btn =>
@@ -83,7 +86,8 @@ async function getCategoryMarkup(category) {
                  <img
                    src="${categoryBook.book_image}"
                   alt="${categoryBook.title}"
-                  class="book-photo"
+                  class="book-photo books-list-img"
+                  data-id ="${categoryBook._id}"
                  />
                  <h2 class="book-name">${categoryBook.title}</h2>
                 <h3 class="author-name">${categoryBook.author}</h3>
