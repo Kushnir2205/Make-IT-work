@@ -1,0 +1,26 @@
+.dark {
+  background-color: #202024;
+}
+.dark .header {
+  background-color: #111111;
+  border: 1.5px solid #fff;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.dark .header__logo-text {
+  color: #ffffff;
+}
+.dark .header-item {
+  color: #ffffff;
+  fill: #ffffff;
+
+  /* &:hover,
+  &:focus {
+    fill: #111111;
+    color: #111111;
+  } */
+}
+.dark .menu-link .current {
+  fill: #111111;
+  color: #111111;
+}
