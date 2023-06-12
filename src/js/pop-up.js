@@ -259,26 +259,32 @@
 //   }
 // });
 
+import { contentLoad } from "./book-card";
+
 function closeModal() {
   const modal = document.querySelector('.modal');
   modal.classList.remove('modal-active');
 }
 
-window.onload = function () {
-  const ulBooksList = document.querySelectorAll('.books-list');
-  const ulBooksListTop = document.querySelectorAll('.books-list-top');
+contentLoad();
 
-  ulBooksList.forEach(book => {
-    book.addEventListener('click', event => {
+ const ulBooksList = document.querySelector('.categories-prewiews');
+  //const ulBooksListTop = document.querySelectorAll('.books-list-top');
+
+
+    console.log(ulBooksList)
+    
+    ulBooksList.addEventListener('click', event => {
       event.preventDefault();
-      console.log(1);
+
+      console.log(event.target);
+
       const modal = document.querySelector('.modal');
       const title = modal.querySelector('.book-title');
       const author = modal.querySelector('.book-author');
       const description = modal.querySelector('.book-description');
 
       const bookLink = event.target.closest('.books-list-img');
-      console.log(bookLink);
 
       if (!bookLink) return;
 
@@ -312,9 +318,8 @@ window.onload = function () {
         })
         .catch(error => console.error(error));
     });
-  });
 
-  ulBooksListTop.forEach(book => {
+ /* ulBooksListTop.forEach(book => {
     book.addEventListener('click', event => {
       event.preventDefault();
 
@@ -354,8 +359,7 @@ window.onload = function () {
         })
         .catch(error => console.error(error));
     });
-  });
-};
+  });*/
 
 function renderStats(book) {
   // let imgchop1 = new URL('/src/images/shop1.png', import.meta.url);

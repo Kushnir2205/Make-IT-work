@@ -59,7 +59,7 @@ async function contentLoad() {
   }, 0);
 }
 
-contentLoad();
+//contentLoad();
 
 //creating a markup of category
 
