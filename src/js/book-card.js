@@ -59,17 +59,17 @@ async function contentLoad() {
   }, 0);
 }
 
-contentLoad();
+//contentLoad();
 
 //creating a markup of category
 
 async function getCategoryMarkup(category) {
   const resp = await getAllCategory(category);
   const data = resp.data;
-  // console.log(data);
-  // if (data.length === 0) {
-  //   return alert('Sorry, we havenot found books in this category');
-  // }
+  console.log(data);
+  if (data.length === 0) {
+    return alert('Sorry, we havenot found books in this category');
+  }
   const categoryBooksMarkup = data
     .map(
       categoryBook => `<li class="book-card">
@@ -119,4 +119,4 @@ async function btnCategoryChanger(e) {
 // );
 // document;
 
-export { getCategoryMarkup };
+export { getCategoryMarkup, contentLoad };

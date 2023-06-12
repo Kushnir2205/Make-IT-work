@@ -73,7 +73,9 @@ const onEventCategories = async (event) => {
   
   try {
       
-      await getCategoryMarkup(listItemEl.textContent)
+    await getCategoryMarkup(listItemEl.textContent);
+
+    
     }
     catch (err) {
       console.log(err);
