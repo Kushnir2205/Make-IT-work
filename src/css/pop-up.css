@@ -1,0 +1,276 @@
+.hr-mob {
+  width: 18px;
+  height: 18px;
+  fill: var(--black-color);
+  position: absolute;
+  top: 16px;
+  right: 80px;
+}
+.hr-mob:hover,
+.hr-mob:focus {
+  fill: #4f2ee8;
+}
+
+.close-mob {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+}
+
+.add-to-list-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+  margin-top: 56px;
+  border: 2px solid #4f2ee8;
+  background-color: transparent;
+  border-radius: 40px;
+  padding-top: 10px;
+  padding: 14px 23px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--black-color);
+}
+
+.add-to-list-button:hover,
+.add-to-list-button:focus {
+  color: #ffffff;
+  background-color: #4f2ee8;
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.4);
+  display: none;
+  backdrop-filter: blur(15px);
+}
+
+.modal-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #ffffff;
+  border: 2px solid var(--black-color);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  width: 80%;
+  height: 762px;
+  overflow-y: auto;
+  position: absolute;
+}
+.close-button {
+  position: relative;
+  top: -380px;
+  left: 250px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.book-title {
+  color: var(--black-color);
+}
+
+/* style in modal */
+.book-title {
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-align: left;
+
+  line-height: 1.16;
+  color: var(--black-color);
+  margin-top: 14px;
+  margin-left: 4px;
+}
+.book-author {
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: left;
+
+  line-height: 1.28;
+  color: var(--books-title-color);
+  margin-top: 14px;
+  margin-left: 4px;
+  margin-bottom: 18px;
+}
+
+.book-description {
+  font-family: DM Sans;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: left;
+  font-size: 14px;
+
+  line-height: 1.28;
+  color: var(--black-color);
+  max-width: 280px;
+  margin: 0;
+  margin-bottom: 22px;
+  margin-left: 4px;
+}
+.book-cover {
+  width: 100%;
+  width: 100%;
+  height: 408px;
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.book-cover-container {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.photo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TABLET */
+@media screen and (min-width: 768px) {
+  .modal-content {
+    width: 579px;
+    height: 465px;
+  }
+  .book-cover {
+    width: 192px;
+    height: 281px;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+  }
+  .book-title {
+    margin-top: 0;
+    margin-left: 0;
+    font-size: 24px;
+  }
+  .book-author {
+    font-size: 14px;
+  }
+  .add-to-list-button {
+    padding: 12px 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 180px;
+  }
+
+  .modal-text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 236px;
+    margin-right: 40px;
+    margin-top: 20px;
+  }
+  .svg-list {
+    display: flex;
+    margin-right: 60px;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .close-button {
+    top: -230px;
+    left: 370px;
+  }
+
+  .hr-mob {
+    width: 18px;
+    height: 18px;
+    fill: var(--black-color);
+    position: absolute;
+    top: 20px;
+    right: 95px;
+  }
+  .hr-mob:hover,
+  .hr-mob:focus {
+    fill: #4f2ee8;
+  }
+}
+
+/* animation */
+al {
+  opacity: 0;
+  visibility: hidden;
+  animation: modalFadeIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-40px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-content {
+  opacity: 0;
+  animation: contentFadeIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
