@@ -112,15 +112,65 @@ async function getCategoryMarkup(category) {
   // console.log(categoryBooksMarkup);
 }
 
-async function btnCategoryChanger(e) {
-  console.log(2);
+// async function btnCategoryChanger(e) {
+//   console.log(2);
 
-  // e.preventDefault();
+//   // e.preventDefault();
+//   if (!e.target.classList.contains('btn-loadmore')) {
+//     return;
+//   }
+//   const cat = e.currentTarget.parentNode.firstElementChild.textContent;
+//   console.log(cat);
+
+//   const activeTitle = document.querySelector('.title-categories');
+//   activeTitle.classList.remove('title-categories');
+//   const listItems = document.querySelectorAll('.item');
+//   listItems.forEach(item => {
+//     item.addEventListener('click', () =>
+//       activeTitle.classList.remove('.title-categories')
+//     );
+//     if (item.firstElementChild.textContent === cat) {
+//       item.classList.add('title-categories');
+//     }
+//   });
+//   // const activeTitle = document.querySelector('.title-categories');
+//   // if (
+//   //   activeTitle.textContent !==
+//   //   document.querySelector('.hero-heading').textContent
+//   // ) {
+//   // activeTitle.classList.remove('title-categories');
+//   // }
+//   console.log(listItems);
+//   getCategoryMarkup(cat);
+// }
+async function btnCategoryChanger(e) {
+  // Remove the class 'title-categories' from the item that has this class
+  const activeTitle = document.querySelector('.title-categories');
+  if (activeTitle) {
+    activeTitle.classList.remove('title-categories');
+  }
+
   if (!e.target.classList.contains('btn-loadmore')) {
     return;
   }
+
   const cat = e.currentTarget.parentNode.firstElementChild.textContent;
   console.log(cat);
+
+  const listItems = document.querySelectorAll('.item');
+  listItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const activeTitle2 = document.querySelector('.title-categories');
+      if (activeTitle2) {
+        activeTitle2.classList.remove('title-categories');
+      }
+    });
+
+    if (item.firstElementChild.textContent === cat) {
+      item.classList.add('title-categories');
+    }
+  });
+
   getCategoryMarkup(cat);
 }
 
