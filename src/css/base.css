@@ -5,16 +5,16 @@
   --black-color: #111111;
   --categories-links-active-color: #4f2ee8;
   --links-color: rgba(17, 17, 17, 0.6);
-  --main-bg-color: #d0d0d0;
+  --main-bg-color: #f6f6f6;
   --scrollbar-color: #e0e0e0;
   --scrollbar-hower-bg-color: #d2d2d2;
   --autorization-form-btn-text-color: #f3f3f3;
   --shopping-list-text-color: rgba(0, 0, 0, 0.6);
 }
 
-body {
+body.light {
   font-family: 'DM Sans', sans-serif;
-  background-color: var(--body-bg-color);
+  background-color: var(--main-bg-color);
 }
 .page {
   display: flex;
@@ -88,9 +88,8 @@ a {
 }
 
 @media only screen and (min-width: 1440px) {
-  .flex{
+  .flex {
     display: flex;
-  gap: 40px;
+    gap: 40px;
   }
-    
 }
