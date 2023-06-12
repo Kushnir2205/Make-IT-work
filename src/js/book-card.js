@@ -49,7 +49,10 @@ async function contentLoad() {
       );
     })
     .join('');
-  heroRefs.catsList.innerHTML = homeMarkup;
+  heroRefs.hero.innerHTML =
+    ' <h1 class="hero-heading">Best Sellers <span class="heading-painter">Books</span></h1><ul class ="categories-prewiews">' +
+    `${homeMarkup}` +
+    `</ul>`;
   setTimeout(() => {
     heroRefs.openCategoryBtn = document.querySelectorAll('.btn-loadmore');
 

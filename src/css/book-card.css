@@ -120,3 +120,6 @@
     width: 100%;
   }
 }
+.cateory-preview books-list {
+  marker: none;
+}
