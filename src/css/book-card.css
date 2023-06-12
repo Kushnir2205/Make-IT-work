@@ -29,7 +29,6 @@
   margin-bottom: 8px;
 }
 .book-photo {
-  margin-bottom: 14px;
   border-radius: 8px;
   width: 335px;
   height: 485px;
@@ -134,18 +133,12 @@
   position: relative;
   overflow: hidden;
   /* transition: ; */
+  margin-bottom: 14px;
+  transition-duration: 500ms;
 }
-/* .overlay {
-  position: absolute;
-  /* transform: translateY(-100%); */
-/* background-color: #eac645;
-height: 70px;
-width: 100%; */
-/* z-index: 10; 
-} */
+
 .img-thumb:hover .overlay {
   transform: translateY(0);
-  transition-duration: 500ms;
 }
 
 .overlay {
@@ -163,26 +156,7 @@ width: 100%; */
   color: #ffffff;
   background: #eac645;
   border-radius: 0px 0px 8px 8px;
+  transition-duration: 500ms;
 
   transform: translateY(100%);
-}
-/* .book-card__link:hover .book-card__overlay,
-.book-card__link:focus .book-card__overlay {
-  transform: translateY(0);
-} */
-
-.prewiew {
-}
-
-@keyframes slide-in-elliptic-top-fwd {
-  0% {
-    transform: translateY(-600px) rotateX(-30deg) scale(0);
-    transform-origin: 50% 100%;
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) rotateX(0) scale(1);
-    transform-origin: 50% 1400px;
-    opacity: 1;
-  }
 }

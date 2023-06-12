@@ -25,7 +25,8 @@ async function contentLoad() {
               `<li class="book-card prewiew">
                 <a
                   href="${book.book_uri}"
-                  class="book-link books-list-link"
+                  class="book-link books-list-link books-list-img"
+                  data-id ="${book._id}"
                   target="_blank"
                   rel="noopener noreferrer"
                   
@@ -33,8 +34,8 @@ async function contentLoad() {
                   <div class ="img-thumb"><div class ="overlay">View</div><img
                     src="${book.book_image}"
                     alt="${book.title}"
-                    class="book-photo books-list-img"
-                    data-id ="${book._id}"
+                    class="book-photo"
+                    
                   /></div> 
                   <h2 class="book-name">${book.title}</h2>
                   <h3 class="author-name">${book.author}</h3>
@@ -79,15 +80,16 @@ async function getCategoryMarkup(category) {
       categoryBook => `<li class="book-card category-only">
               <a
                href="https://google.com"
-                 class="book-link"
+                 class="book-link books-list-img"
+                 data-id ="${categoryBook._id}"
                  target="_blank"
                  rel="noopener noreferrer"
                ><div class ="img-thumb"><div class ="overlay">View</div>
                  <img
                    src="${categoryBook.book_image}"
                   alt="${categoryBook.title}"
-                  class="book-photo books-list-img"
-                  data-id ="${categoryBook._id}"
+                  class="book-photo"
+                  
                  /></div>
                  <h2 class="book-name">${categoryBook.title}</h2>
                 <h3 class="author-name">${categoryBook.author}</h3>
