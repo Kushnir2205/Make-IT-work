@@ -54,7 +54,7 @@ async function contentLoad() {
   heroRefs.her;
   heroRefs.catsList.innerHTML = `${homeMarkup}`;
   document.querySelector('.hero-heading').innerHTML =
-    '<h1 class="hero-heading">Best Sellers<span class="heading-painter">Books</span> </h1>';
+    '<h1 class="hero-heading">Best Sellers <span class="heading-painter">Books</span> </h1>';
   setTimeout(() => {
     heroRefs.openCategoryBtn = document.querySelectorAll('.btn-loadmore');
     heroRefs.openCategoryBtn.forEach(btn =>
