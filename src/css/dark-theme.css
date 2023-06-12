@@ -35,3 +35,18 @@
 .dark .hero-heading {
   color: #ffffff;
 }
+.dark .title-categories:hover {
+  color: #eac645;
+}
+
+.dark .item:hover {
+  color: #eac645;
+}
+/* .dark .svg-mobail {
+  color: #ffffff;
+} */
+
+.dark .btn-loadmore {
+  background-color: #202024;
+  color: #ffffff;
+}
