@@ -30,12 +30,12 @@ async function contentLoad() {
                   rel="noopener noreferrer"
                   
                 >
-                  <img
+                  <div class ="img-thumb"><div class ="overlay">View</div><img
                     src="${book.book_image}"
                     alt="${book.title}"
                     class="book-photo books-list-img"
                     data-id ="${book._id}"
-                  />
+                  /></div> 
                   <h2 class="book-name">${book.title}</h2>
                   <h3 class="author-name">${book.author}</h3>
                 </a>
@@ -54,7 +54,7 @@ async function contentLoad() {
   heroRefs.her;
   heroRefs.catsList.innerHTML = `${homeMarkup}`;
   document.querySelector('.hero-heading').innerHTML =
-    '<h1 class="hero-heading">Best Sellers<span class="heading-painter">Books</span> </h1>';
+    '<h1 class="hero-heading">Best Sellers <span class="heading-painter">Books</span> </h1>';
   setTimeout(() => {
     heroRefs.openCategoryBtn = document.querySelectorAll('.btn-loadmore');
     heroRefs.openCategoryBtn.forEach(btn =>
@@ -82,13 +82,13 @@ async function getCategoryMarkup(category) {
                  class="book-link"
                  target="_blank"
                  rel="noopener noreferrer"
-               >
+               ><div class ="img-thumb"><div class ="overlay">View</div>
                  <img
                    src="${categoryBook.book_image}"
                   alt="${categoryBook.title}"
                   class="book-photo books-list-img"
                   data-id ="${categoryBook._id}"
-                 />
+                 /></div>
                  <h2 class="book-name">${categoryBook.title}</h2>
                 <h3 class="author-name">${categoryBook.author}</h3>
                </a>
