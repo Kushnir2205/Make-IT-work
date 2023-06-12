@@ -134,7 +134,7 @@
   overflow: hidden;
   /* transition: ; */
   margin-bottom: 14px;
-  transition-duration: 500ms;
+  /* transition-duration: 500ms; */
 }
 
 .img-thumb:hover .overlay {
@@ -159,4 +159,28 @@
   transition-duration: 500ms;
 
   transform: translateY(100%);
+}
+
+/* .btn-loadmore:hover {
+  background-color: var(--categories-links-active-color);
+  color: var(--autorization-form-btn-text-color);
+  transition-delay: 500ms;
+}
+
+.btn-loadmore:hover:before {
+  transform: scaleX(1);
+  background-color: #000000;
+} */
+
+.btn-loadmore {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  transition-duration: 500ms;
+}
+
+.btn-loadmore:hover {
+  background-color: var(--categories-links-active-color);
+  color: var(--autorization-form-btn-text-color);
 }
