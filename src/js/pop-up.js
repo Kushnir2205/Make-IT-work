@@ -260,6 +260,8 @@
 // });
 
 import { contentLoad } from "./book-card";
+// import { ?????? } from "./all_categories";
+
 
 function closeModal() {
   const modal = document.querySelector('.modal');
@@ -267,10 +269,10 @@ function closeModal() {
 }
 
 contentLoad();
+// ??????????();
 
  const ulBooksList = document.querySelector('.categories-prewiews');
-  //const ulBooksListTop = document.querySelectorAll('.books-list-top');
-
+  const ulBooksListTop = document.querySelectorAll('.books-list-top');
 
     console.log(ulBooksList)
     
@@ -319,15 +321,18 @@ contentLoad();
         .catch(error => console.error(error));
     });
 
- /* ulBooksListTop.forEach(book => {
-    book.addEventListener('click', event => {
+    ulBooksListTop.addEventListener('click', event => {
       event.preventDefault();
-
+      
+      console.log(event.target);
+   
+  
+  
       const modal = document.querySelector('.modal');
       const title = modal.querySelector('.book-title');
       const author = modal.querySelector('.book-author');
       const description = modal.querySelector('.book-description');
-
+  
       const bookLink = event.target.closest('.books-list-img');
       if (!bookLink) return;
       const bookId = bookLink.dataset.id;
@@ -335,9 +340,9 @@ contentLoad();
         console.error('data-id attribute not found on the book link');
         return;
       }
-
+  
       modal.classList.add('modal-active');
-
+  
       fetch(`https://books-backend.p.goit.global/books/${bookId}`)
         .then(response => response.json())
         .then(data => {
@@ -359,8 +364,6 @@ contentLoad();
         })
         .catch(error => console.error(error));
     });
-  });*/
-
 function renderStats(book) {
   // let imgchop1 = new URL('/src/images/shop1.png', import.meta.url);
   // let imgchop2 = new URL('/src/images/shop2.png', import.meta.url);
@@ -539,8 +542,3 @@ document.addEventListener('keydown', event => {
     closeModal();
   }
 });
-
-// function closeModal() {
-//   const modal = document.querySelector('.modal');
-//   modal.classList.remove('modal-active');
-// }
