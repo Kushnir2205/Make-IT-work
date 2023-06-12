@@ -10,7 +10,7 @@
 .dark .header__logo-text {
   color: #ffffff;
 }
-.dark .header-item {
+.dark .menu-link {
   color: #ffffff;
   fill: #ffffff;
 
@@ -23,4 +23,15 @@
 .dark .menu-link .current {
   fill: #111111;
   color: #111111;
+}
+
+.dark .categories-list .item {
+  color: #ffffff;
+}
+.dark .book-name {
+  color: #ffffff;
+}
+
+.dark .hero-heading {
+  color: #ffffff;
 }
