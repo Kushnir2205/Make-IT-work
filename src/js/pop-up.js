@@ -278,8 +278,12 @@ window.onload = function () {
       const description = modal.querySelector('.book-description');
 
       const bookLink = event.target.closest('.books-list-img');
+      console.log(bookLink);
+
       if (!bookLink) return;
+
       const bookId = bookLink.dataset.id;
+
       if (!bookId) {
         console.error('data-id attribute not found on the book link');
         return;

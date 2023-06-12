@@ -3,7 +3,7 @@ import { getAllCategory, getTopBooks, getBookById } from './api-get.js';
 const heroRefs = {
   hero: document.querySelector('.bookslist-wrapper'),
   topBooksCategoriesList: document.querySelectorAll('.category-preview-books'),
-  openCategoryBtn: document.querySelectorAll('.btn-loadmore-book-wraper'),
+  openCategoryBtn: null,
   cat: document.querySelectorAll('.category-preview-name'),
   catsList: document.querySelector('.categories-prewiews'),
 };
@@ -39,18 +39,24 @@ async function contentLoad() {
                   <h2 class="book-name">${book.title}</h2>
                   <h3 class="author-name">${book.author}</h3>
                 </a>
-              </li>`
+              </li>
+              `
           )
           .join('') +
-        `</ul>
-         <li class="btn-loadmore-book-wraper">
-            <button type="button" class="btn-loadmore">see more</button>
-          </li>
+        ` </ul>
+         <button type="button" class="btn-loadmore">see more</button>
       </li>`
       );
     })
     .join('');
   heroRefs.catsList.innerHTML = homeMarkup;
+  setTimeout(() => {
+    heroRefs.openCategoryBtn = document.querySelectorAll('.btn-loadmore');
+
+    heroRefs.openCategoryBtn.forEach(btn =>
+      btn.addEventListener('click', btnCategoryChanger)
+    );
+  }, 0);
 }
 
 contentLoad();
@@ -92,26 +98,25 @@ async function getCategoryMarkup(category) {
   heroRefs.hero.innerHTML = `<h1 class="hero-heading">${
     h1arr.join(' ') + ' '
   }<span class="heading-painter">${lastWord}</span> </h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
+
   // console.log(categoryBooksMarkup);
 }
-function btnCategoryChanger(e) {
-  console.log(1);
+
+async function btnCategoryChanger(e) {
+  console.log(2);
 
   // e.preventDefault();
-  // if (!e.currentTarget.classList.contains('btn-loadmore')) {
-  //   return;
-  // }
-  // const cat = e.currentTarget.previousSibling.firstElementChild.textContent;
-  // console.log(cat);
-  // getCategoryMarkup(cat);
+  if (!e.target.classList.contains('btn-loadmore')) {
+    return;
+  }
+  const cat = e.currentTarget.parentNode.firstElementChild.textContent;
+  console.log(cat);
+  getCategoryMarkup(cat);
 }
 
 // heroRefs.openCategoryBtn.forEach(btn =>
 //   btn.addEventListener('click', btnCategoryChanger)
 // );
 // document;
-document
-  .querySelector('.btn-loadmore')
-  .addEventListener('click', btnCategoryChanger);
 
 export { getCategoryMarkup };
