@@ -86,7 +86,8 @@ async function getCategoryMarkup(category) {
                  <img
                    src="${categoryBook.book_image}"
                   alt="${categoryBook.title}"
-                  class="book-photo"
+                  class="book-photo books-list-img"
+                  data-id ="${categoryBook._id}"
                  />
                  <h2 class="book-name">${categoryBook.title}</h2>
                 <h3 class="author-name">${categoryBook.author}</h3>
