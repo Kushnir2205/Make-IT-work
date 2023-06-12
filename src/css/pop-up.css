@@ -230,3 +230,47 @@
     fill: #4f2ee8;
   }
 }
+
+/* animation */
+al {
+  opacity: 0;
+  visibility: hidden;
+  animation: modalFadeIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-40px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-content {
+  opacity: 0;
+  animation: contentFadeIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
