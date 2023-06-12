@@ -25,7 +25,7 @@ async function contentLoad() {
               `<li class="book-card prewiew">
                 <a
                   href="${book.book_uri}"
-                  class="book-link"
+                  class="book-link books-list-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   
@@ -55,7 +55,6 @@ async function contentLoad() {
     `</ul>`;
   setTimeout(() => {
     heroRefs.openCategoryBtn = document.querySelectorAll('.btn-loadmore');
-
     heroRefs.openCategoryBtn.forEach(btn =>
       btn.addEventListener('click', btnCategoryChanger)
     );
@@ -75,7 +74,7 @@ async function getCategoryMarkup(category) {
   }
   const categoryBooksMarkup = data
     .map(
-      categoryBook => `<li class="book-card">
+      categoryBook => `<li class="book-card category-only">
               <a
                href="https://google.com"
                  class="book-link"

@@ -123,3 +123,9 @@
 .cateory-preview books-list {
   marker: none;
 }
+
+@media only screen and (max-width: 767px) {
+  .category-only {
+    margin-bottom: 40px;
+  }
+}
