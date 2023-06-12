@@ -1,6 +1,7 @@
+import './js/header';
+import './js/support_Ukraine';
+import './js/theme-switcher.js';
 
-//import './support_Ukraine';
-//import './header';
 
 // const bookList = document.querySelector('.book-list');
 // const emptyList = document.querySelector('.shopping-empty');
