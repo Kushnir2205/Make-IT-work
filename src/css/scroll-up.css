@@ -1,0 +1,35 @@
+.anchor-btn {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 85%;
+  right: 5%;
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  background-color: #4f2ee8;
+  border-radius: 50%;
+  border: 10px solid transparent;
+
+  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+
+.anchor-btn:hover {
+  border: 5px solid #eac645;
+}
+
+.anchor-icon {
+  fill: #fff;
+}
+
+.anchor-icon:hover {
+  fill: #eac645;
+}
