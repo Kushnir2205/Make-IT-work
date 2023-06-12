@@ -49,6 +49,8 @@ async function contentLoad() {
       );
     })
     .join('');
+  heroRefs.catsList.classList.remove('category-all-books');
+  heroRefs.catsList.classList.add('categories-prewiews', 'books-list-top');
   heroRefs.catsList.innerHTML = `${homeMarkup}`;
   setTimeout(() => {
     heroRefs.openCategoryBtn = document.querySelectorAll('.btn-loadmore');
@@ -94,9 +96,14 @@ async function getCategoryMarkup(category) {
   const lastWord = h1arr.splice(h1arr.length - 1, 1).join('');
   // console.log(h1arr);
   // console.log(lastWord);
-  heroRefs.hero.innerHTML = `<h1 class="hero-heading">${
+  document.querySelector(
+    '.hero-heading'
+  ).innerHTML = `<h1 class="hero-heading">${
     h1arr.join(' ') + ' '
-  }<span class="heading-painter">${lastWord}</span> </h1> <ul class="category-all-books">${categoryBooksMarkup}</ul>`;
+  }<span class="heading-painter">${lastWord}</span> </h1> `;
+  heroRefs.catsList.classList.add('category-all-books');
+  heroRefs.catsList.classList.remove('categories-prewiews', 'books-list-top');
+  heroRefs.catsList.innerHTML = `${categoryBooksMarkup}`;
 
   // console.log(categoryBooksMarkup);
 }
