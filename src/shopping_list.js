@@ -2,6 +2,9 @@ import './js/header';
 import './js/support_Ukraine';
 import './js/theme-switcher.js';
 
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
 import amazonSite from './images/popup/amazon.png';
 import bookSite from './images/popup/book.png';
 import bookShopSite from './images/popup/bookshop.png';
@@ -24,7 +27,7 @@ function updateBasketDisplay() {
 
 function createBookCards(bookInfo) {
     const bookCard = bookInfo.map(bookData => {
-        const { author: bookAuthor, description: bookDesc, id: bookId, image: bookUrl, publisher: bookCategory, title: bookTitle } = bookData;
+        const { author: bookAuthor, description: bookDesc, id: bookId, image: bookUrl, publisher: bookCategory, title: bookTitle, amazon: bookAmazon, apple: bookApple, shop: bookShop } = bookData;
         return `<div class="shopping-book-card" data-book-id="${bookId}">  
         <img  
           src="${bookUrl}"  
@@ -41,17 +44,17 @@ function createBookCards(bookInfo) {
             <p class="shopping-author-card">${bookAuthor}</p>  
             <ul class="shopping-site"> 
               <li> 
-                <a href="" rel="noopener noreferrer nofollow"
+                <a href="${bookAmazon}" target="_blank" rel="noopener noreferrer nofollow"
                   ><img src="${amazonSite}" alt="amazon" 
                 /></a> 
               </li> 
               <li> 
-                <a href="" rel="noopener noreferrer nofollow"
+                <a href="${bookApple}" target="_blank" rel="noopener noreferrer nofollow"
                   ><img src="${bookSite}" alt="book site" 
                 /></a> 
               </li> 
               <li> 
-                <a href="" rel="noopener noreferrer nofollow"
+                <a href="${bookShop}" target="_blank" rel="noopener noreferrer nofollow"
                   ><img src="${bookShopSite}" alt="book shop site" 
                 /></a> 
               </li> 

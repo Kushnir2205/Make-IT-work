@@ -14,12 +14,12 @@ contentLoad();
 const ulBooksList = document.querySelector('.categories-prewiews');
 const ulBooksListTop = document.querySelectorAll('.books-list-top');
 
-console.log(ulBooksList);
+// console.log(ulBooksList);
 
 ulBooksList.addEventListener('click', event => {
   event.preventDefault();
 
-  console.log(event.target);
+  // console.log(event.target);
 
   const modal = document.querySelector('.modal');
   const title = modal.querySelector('.book-title');
@@ -52,7 +52,10 @@ ulBooksList.addEventListener('click', event => {
           book.author,
           book.description,
           book.book_image,
-          book.publisher
+          book.publisher,
+          book.buy_links[0].url,
+          book.buy_links[1].url,
+          book.buy_links[4].url
         );
       } else {
         console.error('The book object is empty.');
@@ -94,7 +97,10 @@ ulBooksListTop?.addEventListener?.('click', event => {
           book.author,
           book.description,
           book.book_image,
-          book.publisher
+          book.publisher,
+          book.buy_links[0].url,
+          book.buy_links[1].url,
+          book.buy_links[4].url
         );
       } else {
         console.error('The book object is empty.');
@@ -169,7 +175,10 @@ function updateButton(
   bookAuthor,
   bookDescription,
   bookImageUrl,
-  bookPublisher
+  bookPublisher,
+  bookAmazon,
+  bookApple,
+  bookShop
 ) {
   const button = document.querySelector('.add-to-list-button');
   const bookList = getBookListFromLocalStorage();
@@ -188,7 +197,10 @@ function updateButton(
       bookAuthor,
       bookDescription,
       bookImageUrl,
-      bookPublisher
+      bookPublisher,
+      bookAmazon,
+      bookApple,
+      bookShop
     );
   });
 }
@@ -199,7 +211,10 @@ function handleButtonClick(
   bookAuthor,
   bookDescription,
   bookImageUrl,
-  bookPublisher
+  bookPublisher,
+  bookAmazon,
+  bookApple,
+  bookShop
 ) {
   const button = document.querySelector('.add-to-list-button');
   const bookList = getBookListFromLocalStorage();
@@ -215,7 +230,10 @@ function handleButtonClick(
       bookAuthor,
       bookDescription,
       bookImageUrl,
-      bookPublisher
+      bookPublisher,
+      bookAmazon,
+      bookApple,
+      bookShop
     );
 
     button.textContent = 'Remove from Shopping List';
@@ -235,7 +253,10 @@ function addToLocalStorage(
   bookAuthor,
   bookDescription,
   bookImage,
-  bookPublisher
+  bookPublisher,
+  bookAmazon,
+  bookApple,
+  bookShop
 ) {
   const bookList = getBookListFromLocalStorage();
   bookList.push({
@@ -245,6 +266,9 @@ function addToLocalStorage(
     description: bookDescription,
     image: bookImage,
     publisher: bookPublisher,
+    amazon: bookAmazon,
+    apple: bookApple,
+    shop: bookShop
   });
   localStorage.setItem('bookList', JSON.stringify(bookList));
   Notiflix.Notify.success('This book was added to your Shopping list!')
