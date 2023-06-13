@@ -1,6 +1,9 @@
 
 import Notiflix from 'notiflix';
 import { contentLoad } from './book-card';
+import amazon from '../images/popup/amazon.png';
+import bookImage from '../images/popup/book.png';
+import bookshop from '../images/popup/bookshop.png';
 
 
 function closeModal() {
