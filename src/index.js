@@ -5,3 +5,4 @@ import './js/header.js';
 import './js/pop-up.js';
 import './js/support_Ukraine.js';
 import './js/theme-switcher.js';
+import './js/scroll-up.js';
