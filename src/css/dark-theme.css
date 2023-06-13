@@ -50,3 +50,37 @@
   background-color: #202024;
   color: #ffffff;
 }
+
+.dark .shopping-title-card {
+  color: #ffffff;
+}
+
+.dark .shopping-desc-card {
+  color: #ffffff;
+}
+
+.dark .modal-content {
+  background-color: #202024;
+  color: #ffffff;
+  outline: 1px white;
+}
+
+.dark .book-title {
+  color: #ffffff;
+}
+
+.dark .add-to-list-button {
+  color: #ffffff;
+}
+
+.dark .hr-mob {
+  fill: #ffff;
+}
+
+.dark .modal-content {
+  border: 2px solid #ffff;
+}
+
+.dark .book-description {
+  color: #ffffff;
+}
