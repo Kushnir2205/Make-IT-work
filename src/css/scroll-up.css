@@ -23,7 +23,8 @@
 }
 
 .anchor-btn:hover {
-  border: 10px solid #eac645;
+  /* border: 30px solid #eac645; */
+  background-color: #eac645;
 }
 
 .anchor-icon {
