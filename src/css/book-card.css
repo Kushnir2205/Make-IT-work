@@ -137,7 +137,8 @@
   /* transition-duration: 500ms; */
 }
 
-.img-thumb:hover .overlay {
+.img-thumb:hover .overlay,
+.img-thumb:focus .overlay {
   transform: translateY(0);
 }
 

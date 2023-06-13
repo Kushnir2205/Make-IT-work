@@ -1,10 +1,8 @@
-
 import Notiflix from 'notiflix';
 import { contentLoad } from './book-card';
 import amazon from '../images/popup/amazon.png';
 import bookImage from '../images/popup/book.png';
 import bookshop from '../images/popup/bookshop.png';
-
 
 function closeModal() {
   const modal = document.querySelector('.modal');
@@ -115,6 +113,7 @@ function renderStats(book) {
   // let imgchop1 = new URL('/src/images/shop1.png', import.meta.url);
   // let imgchop2 = new URL('/src/images/shop2.png', import.meta.url);
   // let imgchop3 = new URL('/src/images/shop3.png', import.meta.url);
+
   const content = `
     <div class="book-cover-container">
       <img src="${book.book_image}" alt="${book.title}" class="book-cover">
@@ -170,6 +169,17 @@ function renderStats(book) {
 `;
   const modalContent = document.querySelector('.modal-content');
   modalContent.innerHTML = content;
+
+  const btn = document.querySelector('.add-to-list-button');
+  const localStorageBooks = getBookListFromLocalStorage();
+  console.log(localStorageBooks);
+  const localStorageBook = localStorageBooks.some(
+    lsb => lsb.title === book.title
+  );
+  console.log(localStorageBook);
+  if (localStorageBook) {
+    btn.textContent = 'Remove from Shopping List';
+  }
 }
 
 function updateButton(
@@ -271,18 +281,17 @@ function addToLocalStorage(
     publisher: bookPublisher,
     amazon: bookAmazon,
     apple: bookApple,
-    shop: bookShop
+    shop: bookShop,
   });
   localStorage.setItem('bookList', JSON.stringify(bookList));
-  Notiflix.Notify.success('This book was added to your Shopping list!')
- 
+  Notiflix.Notify.success('This book was added to your Shopping list!');
 }
 
 function removeFromLocalStorage(bookId) {
   const bookList = getBookListFromLocalStorage();
   const updatedList = bookList.filter(item => item.id !== bookId);
   localStorage.setItem('bookList', JSON.stringify(updatedList));
-  Notiflix.Notify.warning('This book was removed from your Shopping list!')
+  Notiflix.Notify.warning('This book was removed from your Shopping list!');
 }
 
 function updateShoppingListInfo() {
@@ -302,7 +311,8 @@ modalBackground.addEventListener('click', event => {
   }
 });
 
-document.addEventListener('keydown', event => { // Закриття модального вікна при натисканні Escape
+document.addEventListener('keydown', event => {
+  // Закриття модального вікна при натисканні Escape
   if (event.key === 'Escape') {
     closeModal();
   }
