@@ -1,5 +1,6 @@
 .dark {
   background-color: #202024;
+  font-family: 'DM Sans', sans-serif;
 }
 .dark .header {
   background-color: #111111;
@@ -13,13 +14,12 @@
 .dark .menu-link {
   color: #ffffff;
   fill: #ffffff;
-
-  /* &:hover,
-  &:focus {
-    fill: #111111;
-    color: #111111;
-  } */
 }
+/* .dark .menu-link:hover {
+  fill: #111111;
+  color: #111111;
+} */
+
 .dark .menu-link .current {
   fill: #111111;
   color: #111111;
@@ -83,4 +83,17 @@
 
 .dark .book-description {
   color: #ffffff;
+}
+
+.dark .shopping-text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .button-burger {
+  background-color: #eac645;
+  fill: #ffffff;
+}
+
+.dark .button-burger-close {
+  background-color: #eac645;
 }
