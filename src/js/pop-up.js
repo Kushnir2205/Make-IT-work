@@ -128,7 +128,7 @@ function renderStats(book) {
             href="${book.buy_links[0].url}"
           >
             <img
-              src="./images/popup/amazon"
+              src="${amazon}"
               class="shop-shoppingList-img1"
               alt="amazon"
               />
@@ -142,7 +142,7 @@ function renderStats(book) {
               >
               <img
               class="shop-shoppingList-img2"
-              src="./images/popup/book"
+              src="${bookImage}"
               alt="amazon"
               />
           </a>
@@ -155,7 +155,7 @@ function renderStats(book) {
               >
               <img
               class="shop-shoppingList-img2"
-              src="./images/popup/bookshop"
+              src="${bookshop}"
               alt="amazon"
               />
           </a>
