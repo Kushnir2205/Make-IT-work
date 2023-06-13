@@ -1,6 +1,9 @@
 
 import Notiflix from 'notiflix';
 import { contentLoad } from './book-card';
+import amazon from '../images/popup/amazon.png';
+import bookImage from '../images/popup/book.png';
+import bookshop from '../images/popup/bookshop.png';
 
 
 function closeModal() {
@@ -128,7 +131,7 @@ function renderStats(book) {
             href="${book.buy_links[0].url}"
           >
             <img
-              src="./images/popup/amazon"
+              src="${amazon}"
               class="shop-shoppingList-img1"
               alt="amazon"
               />
@@ -142,7 +145,7 @@ function renderStats(book) {
               >
               <img
               class="shop-shoppingList-img2"
-              src="./images/popup/book"
+              src="${bookImage}"
               alt="amazon"
               />
           </a>
@@ -155,7 +158,7 @@ function renderStats(book) {
               >
               <img
               class="shop-shoppingList-img2"
-              src="./images/popup/bookshop"
+              src="${bookshop}"
               alt="amazon"
               />
           </a>
