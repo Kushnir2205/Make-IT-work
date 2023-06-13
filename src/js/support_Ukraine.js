@@ -80,8 +80,8 @@ const pngSupport = [
     url: 'https://u24.gov.ua/uk',
     img: found8,
     img2: found8x,
-    width: 60,
-    height: 20,
+    width: 90,
+    height: 15,
   },
   {
     title: 'World vision',

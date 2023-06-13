@@ -1,10 +1,3 @@
-.shopping-list-section {
-    width: 100%;
-    height: 100%;
-    padding-top: 40px;
-    background-color: var(--white-color);
-}
-
 @media screen and (min-width: 768px) {
     .shopping-list-section {
         height: 935px;
@@ -32,24 +25,6 @@
     font-weight: 400;
     letter-spacing: -0.04em;
     color: var(--black-color);
-}
-
-.shopping-title {
-    margin-bottom: 40px;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1.19;
-}
-
-@media screen and (min-width: 768px) {
-    .shopping-title {
-        font-size: 48px;
-        line-height: 1.08;
-    }
-}
-
-.list-title {
-    color: var(--categories-links-active-color);
 }
 
 .shopping-empty {
@@ -133,27 +108,48 @@
     }
 }
 
+.shopping-card-info {
+    padding: 14px 14px 14px 0;
+}
+
+@media screen and (min-width: 768px) {
+    .shopping-card-info {
+        padding: 24px 24px 24px 0;
+    }
+}
+
 .shopping-title-card {
-    margin-top: 14px;
+    width: 124px;
     margin-bottom: 4px;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.12;
-    text-transform: uppercase;
+    white-space: nowrap;
 }
 
-@media only screen and (min-width: 768px) {
-    .shopping-title-card {
-        margin-top: 24px;
+@media screen and (min-width: 375px) {
+    .shopping-title-card {  
+        width: 144px;
   }
 }
 
+@media screen and (max-width: 768px) {
+    .shopping-title-card {
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    }
+}
 .shopping-category-card {
+    width: 165px;
     margin-bottom: 8px;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.03em;
     color: #B4AFAF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media screen and (min-width: 768px) {
@@ -164,7 +160,8 @@
 
 .shopping-desc-card {
     margin-bottom: 25px;
-    max-width: 193px;
+    width: 150px;
+    height: 3.6em;
     font-size: 14px;
     line-height: 1.29;
     overflow: hidden;
@@ -176,14 +173,20 @@
 
 @media screen and (min-width: 768px) {
     .shopping-desc-card {
-        max-width: 508px;
+        width: 193px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .shopping-desc-card {
+        width: 508px;
         margin-bottom: 31px;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .shopping-desc-card {
-        max-width: 804px;
+        width: 804px;
     }
 }
 
@@ -194,10 +197,16 @@
 }
 
 .shopping-author-card {
-    font-size: 12px;
+    font-size: 10px;
     font-style: italic;
     line-height: 1.17;
     color: #B4AFAF;
+}
+
+@media screen and (min-width: 375px) {
+    .shopping-author-card {
+        font-size: 12px;
+  }
 }
 
 .shopping-site {

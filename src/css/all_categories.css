@@ -1,4 +1,4 @@
-@media only screen and (min-width: 768px) and (max-width: 1440px) {
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
    .aside{
      display: flex;
      gap: 32px;
@@ -16,6 +16,18 @@
     font-size: 16px;
     line-height: 1.12;
     letter-spacing: -0.02em;
+}
+
+.categories::-webkit-scrollbar {
+    width: 8px;
+    height: 114px;
+}
+
+.categories::-webkit-scrollbar-thumb {
+    /* width: 8px;
+    height: 114px; */
+    border-radius: 12px;
+    background-color: var(--scrollbar-color);
 }
 @media only screen and (min-width: 768px) {
    .categories {
@@ -42,6 +54,15 @@
     color: var(--categories-links-active-color);
     text-transform: uppercase;
     font-weight: 700;
+}
+
+.categories-list > li:hover,
+.categories-list > li:focus {
+    color: var(--categories-links-active-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    transition-duration: 100ms;
+        
 }
 
 .item:not(:last-child) {
