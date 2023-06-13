@@ -12,16 +12,20 @@ import sprite from './images/sprite.svg';
 
 const booksBasket = document.querySelector('.books-basket');
 const emptyList = document.querySelector('.shopping-empty');
+const paginationContainer = document.querySelector('.js-tui-pagination');
 
 updateBasketDisplay();
 
 function updateBasketDisplay() {
     const bookInfo = JSON.parse(localStorage.getItem('bookList'));
     if (bookInfo && bookInfo.length > 0) {
-        emptyList.style.display = 'none';
-        createBookCards(bookInfo);
+      emptyList.style.display = 'none';
+      const displayedItems = bookInfo.slice(0, 3);
+      createBookCards(displayedItems);
+      createPagination();
     } else {
-        emptyList.style.display = 'block';
+      emptyList.style.display = 'block';
+      paginationContainer.classList.add('is-hidden');
     }
 }
 
@@ -68,24 +72,49 @@ function createBookCards(bookInfo) {
         </button> 
       </div>`;
     }).join('');
-    booksBasket.innerHTML = bookCard;
-}
+  booksBasket.innerHTML = bookCard;
 
 const deleteBookBtn = document.querySelectorAll('.shopping-close-btn');
-
-function onDeleteBook() {
-    const bookId = this.parentNode.dataset.bookId;
-    const localStorageBook = JSON.parse(localStorage.getItem('bookList'));
-    const bookIndex = localStorageBook.findIndex(book => bookId === book.id);
-    localStorageBook.splice(bookIndex, 1);
-    localStorage.setItem('bookList', JSON.stringify(localStorageBook));
-    this.parentNode.remove();
-    if (!localStorageBook.length > 0) {
-        emptyList.style.display = 'block';
-    }
-}
-
-deleteBookBtn.forEach(btn => {
+  deleteBookBtn.forEach(btn => {
     btn.addEventListener('click', onDeleteBook);
 });
+}
 
+function onDeleteBook() {
+  console.log('click');
+    const bookId = this.parentNode.dataset.bookId;
+    const localStorageBook = JSON.parse(localStorage.getItem('bookList'));
+  const bookIndex = localStorageBook.findIndex(book => bookId === book.id);
+  
+if (bookIndex !== -1) {
+    localStorageBook.splice(bookIndex, 1);
+    localStorage.setItem('bookList', JSON.stringify(localStorageBook));
+
+    updateBasketDisplay();
+  }
+  this.parentNode.remove();
+}
+
+function createPagination() {
+  const bookInfo = JSON.parse(localStorage.getItem('bookList'));
+  const itemsPerPage = 3;
+
+  const paginationOptions = {
+  totalItems: bookInfo.length,
+  itemsPerPage: itemsPerPage,
+  visiblePages: 3,
+  page: 1,
+};
+
+  const pagination = new Pagination(paginationContainer, paginationOptions);
+  
+  paginationContainer.classList.remove('is-hidden');
+
+  pagination.on('afterMove', (eventData) => {
+    const currentPage = eventData.page;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const displayedItems = bookInfo.slice(startIndex, endIndex);
+    createBookCards(displayedItems);
+  })
+}
