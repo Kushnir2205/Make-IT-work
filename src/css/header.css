@@ -19,6 +19,7 @@
 }
 
 .header {
+    
 position: relative;
 z-index: 999;
 background-color: #FFFFFF;
@@ -35,9 +36,7 @@ background-color: #FFFFFF;
 }
 
 .header-list {
-    position: relative;
-    top: 0;
-    left: 0;
+    
     display: flex;
     align-items: center
 }
@@ -49,11 +48,7 @@ background-color: #FFFFFF;
     font-weight: 600;
 }
 
-/* @media screen and (min-width: 320px) {
-    .header-link-logo {
-       justify-content: space-between;
-    }
-} */
+
 
 @media screen and (min-width: 768px) {
     .header-link-logo {
@@ -154,6 +149,8 @@ background-color: #FFFFFF;
     color: #111111;
 }
 
+
+
 .menu-link.current::after {
     position: absolute;
     width: 100%;
@@ -162,6 +159,7 @@ background-color: #FFFFFF;
     background-color: #EAC645;
     
 }
+
 
 @media screen and (min-width: 320px) {
     .button-burger {
@@ -194,12 +192,13 @@ justify-content: space-between;
     display: flex;
     align-items: center;
 }
+
 .switch {
     position: relative;
     display: inline-block;
     width: 40px;
     height: 20px;
-    margin-right: 14px;
+    margin-right: 12px;
 }
 
 .switch input {
@@ -225,7 +224,7 @@ justify-content: space-between;
     height: 18px;
     width: 18px;
     left: 1px;
-    bottom: 1.3px;
+    bottom:1px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -246,7 +245,7 @@ input:checked+.slider:before {
     transform: translateX(20px);
 }
 
-/* Rounded sliders */
+
 .slider.round {
     border-radius: 34px;
 }
@@ -258,23 +257,37 @@ input:checked+.slider:before {
 
 /* **************************modal *************************menu */
 
+
+
 @media screen and (min-width: 320px) {
     .header {
+        
         /* position: relative; */
-        /* position: fixed;
+         position: fixed; 
         top: 0;
-        left: 0; */
+        left: 0;  
         /* z-index: 100000; */
-        /* width: 100%; */
+        width: 100%;
         background-color: #FFFFFF;
         padding: 18px 20px;
 
     }
 }
+@media screen and (min-width: 768px) {
+    .header {
 
+        position: relative;
+        top: 0;
+        left: 0;  
+        /* background-color: #FFFFFF;
+        padding: 18px 20px; */
+
+    }
+}
 @media screen and (min-width: 320px) {
     .mobile-menu {
         display: flex;
+      
     }
 }
 
@@ -285,12 +298,14 @@ input:checked+.slider:before {
 }
 
 .mobile-menu {
-    
+    display: block;
+            overflow: hidden;
         /* margin-top: 65px; */
         position:fixed;
     z-index: 998;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
     background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
@@ -305,12 +320,12 @@ input:checked+.slider:before {
     pointer-events: initial;
     opacity: 1;
     visibility: visible;
-    overflow: auto;
+    overflow: hidden;
     transform: translateX(0);
 }
 .mobile-nav-list {
     margin-top: 183px;
-   
+    margin-bottom: 125px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -325,13 +340,16 @@ input:checked+.slider:before {
     gap: 4px;
 }
 
+.mobile-color{
+color: var(--white-color);
+}
 .header-link-home {
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
-    color: var(--white-color);
+ 
     letter-spacing: -0.04em;
     text-transform: uppercase;
 }
@@ -345,14 +363,33 @@ input:checked+.slider:before {
     line-height: 18px;
     letter-spacing: -0.04em;
     text-transform: uppercase;
+   
+        font-style: normal;
+        font-weight: 500;
+        
     color: #FFFFFF;
 }
 
 .svg-mobail {
     margin-left: 4px;
-    fill: #FFFFFF
-}
+fill: #fff;
+ } 
 
+.svg-mobail-color {
+    /* margin-left: 4px; */
+    fill: #000;
+    /* color: var(--black-color); */
+}
+ /* @media screen and (min-width: 320px) {
+    .svg-mobail {
+   fill: #FFFFFF; 
+ } 
+ }
+ @media screen and (min-width: 768px) {
+     .svg-mobail {
+         fill: #FFFFFF;
+     }
+ } */
 .menu-link-mobail {
     position: relative;
     display: inline-flex;
@@ -366,6 +403,7 @@ input:checked+.slider:before {
     background-color: #EAC645;
     color: var(--black-color);
     padding: 8px 16px;
+  
 }
 
 .menu-link-mobail.current::after {
@@ -376,17 +414,118 @@ input:checked+.slider:before {
     background-color: #EAC645;
 }
 .mobile-nav-item-img{
-position: relative;
-z-index: 1;
- margin-top: 125px;
+/* position: absolute;
+top:0;
+
+left: 0; */
+/* z-index: 1; */
+width: 100%; 
+margin: auto;
+/* display: block; */
+ 
 }
 @media screen and (min-width: 320px) {
     .button-burger-close{
     background-color: #fff;
+    display: flex;
    padding: 0;
 }
 }
+
+@media screen and (min-width: 768px) {
+    .button-burger-close {
+          
+            display: none;
+            
+        }}
 .is-hidden{
     display: none;
 }
 
+.on-scroll{
+    overflow:hidden;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000; */
+}
+
+.button-autor{
+ width: 184px;
+ height: 48px;
+background: #4F2EE8;
+border-radius: 36px;
+border: 1.5px solid #111111;
+border-radius: 18px;
+font-family: 'DM Sans';
+ font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 18px;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+padding: 14px;
+letter-spacing: -0.04em;
+margin-left: 12px;            
+color: #FFFFFF;
+}
+@media screen and (min-width: 320px) {
+.button-autor {
+    display: none;
+}
+}
+@media screen and (min-width: 768px) {
+    .button-autor {
+        display: flex;
+    }
+}
+.svg-button{
+    margin-left: 89px;
+}
+
+/* @media screen and (min-width: 320px) {
+    .btn-autor {
+     /* margin-top:  641px;    */
+    
+
+   .btn-autor{
+    width: 118px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1.5px solid #111111;
+    border-radius: 18px;
+    position: absolute;
+        /* top: 635px;
+            left: 20px; */
+            top: 0;
+            left: 0;
+    z-index: 1;
+    font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 18px;
+padding: 14px 24px;
+letter-spacing: -0.04em;
+    
+        color: #111111;
+        margin-left: 20px;
+        margin-top: 569px;
+/* margin-top:  641px; */
+}
+
+
+
+
+
+.svg-btn-autor{
+   position: absolute;
+   top: 14px;
+   left: 86px;
+}
+body.menu-open {
+    overflow: hidden;
+}
