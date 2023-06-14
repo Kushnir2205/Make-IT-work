@@ -7,6 +7,7 @@ import bookshop from '../images/popup/bookshop.png';
 function closeModal() {
   const modal = document.querySelector('.modal');
   modal.classList.remove('modal-active');
+  document.body.style.overflow = 'auto';
 }
 
 contentLoad();
