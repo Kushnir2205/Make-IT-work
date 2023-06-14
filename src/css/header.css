@@ -140,9 +140,7 @@ height: 72px;
     position: relative;
     display: inline-flex;
     border-radius: 36px;
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   
 }
 
 .menu-link.current {
@@ -380,9 +378,7 @@ input:checked+.slider:before {
     position: relative;
     display: inline-flex;
     border-radius: 36px;
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   
 }
 
 .menu-link-mobail.current {
