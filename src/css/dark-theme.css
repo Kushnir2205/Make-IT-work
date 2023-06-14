@@ -15,10 +15,6 @@
   color: #ffffff;
   fill: #ffffff;
 }
-/* .dark .menu-link:hover {
-  fill: #111111;
-  color: #111111;
-} */
 
 .dark .menu-link .current {
   fill: #111111;
