@@ -82,41 +82,6 @@ headerLinkShoppingList.addEventListener('click', activateShoppingListLink);
 
 
 // Modal-menu
-
-
-// const headerLinkHomeModal = document.querySelector(".header-link-home-modal");
-// const headerLinkShoppingListModal = document.querySelector(".header-link-shoppingcart");
-// const svg = document.querySelector(".svg-mobail ");
-// headerLinkHomeModal.classList.add("current");
-
-// const activateHomeLinkModal = () => {
-//   headerLinkHomeModal.classList.add("current");
-//   headerLinkShoppingListModal.classList.remove("current");
-// };
-
-// const activateShoppingListLinkModal = () => {
-//   svg.classList.add("svg-mobail-color");
-//   svg.classList.remove("svg-mobail-color");
-
-//   headerLinkShoppingListModal.classList.add("current");
-//   headerLinkHomeModal.classList.remove("current");
-// };
-
-// const currentPagesURL = window.location.href;
-
-// if (currentPagesURL.includes("index.html")) {
-//   activateHomeLinkModal();
-// } else if (currentPagesURL.includes("shopping_list.html")) {
-//   activateShoppingListLinkModal();
-// }
-
-// headerLinkHomeModal.addEventListener('click', () => {
-//   activateHomeLinkModal();
-//   activateShoppingListLinkModal();
-// });
-
-
- 
 const headerLinkHomeModal = document.querySelector(".header-link-home-modal");
 const headerLinkShoppingListModal = document.querySelector(".header-link-shoppingcart");
 const svgElement = document.querySelector(".svg-mobail");
