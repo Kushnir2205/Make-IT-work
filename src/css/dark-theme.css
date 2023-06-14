@@ -21,9 +21,6 @@
   color: #111111;
 }
 
-.dark .categories-list .item {
-  color: #ffffff;
-}
 .dark .book-name {
   color: #ffffff;
 }
@@ -31,12 +28,14 @@
 .dark .hero-heading {
   color: #ffffff;
 }
-.dark .title-categories:hover {
+.dark .title-categories {
   color: #eac645;
 }
-
-.dark .item:hover {
+.dark .categories-list > li:hover {
   color: #eac645;
+}
+.dark .categories:first-child {
+  color: #ffffff;
 }
 
 .dark .btn-loadmore {
