@@ -1,5 +1,5 @@
 <!-- <section class="support"> -->
-    <div class="support-container">
+    <div class="support-container" id="support-contain">
         <div class="wrapper">
           <h2 class="support-title">Support Ukraine</h2>
           <svg class="support-icon" width="20" height="32">
@@ -7,16 +7,20 @@
           </svg>
         </div>
    
-        <div class="swiper-div">
+        <div class="swiper-div" id="swiper-div">
           <div class="forLogoDiv"></div>
         </div>
         <button
+          id="swiper-button"
           class="swiper-button-next"
           type="button"
           aria-label="Scroll to show more founds"
         >
-          <svg class="swiper-button-next-icon" width="22" height="22">
+          <svg class="swiper-button-next-icon-down" id="scrolldown" width="22" height="22">
             <use href="./images/sprite.svg#icon-arrowscrolldown"></use>
+          </svg>
+          <svg class="swiper-button-next-icon-up is-hidden" id="scrollup" width="22" height="22">
+            <use href="./images/sprite.svg#icon-arrowscrollupsupport"></use>
           </svg>
         </button>
       </div>
