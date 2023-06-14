@@ -231,12 +231,19 @@
 
 .shopping-close-btn {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 8px;
+  right: 8px;
   background-color: var(--categories-links-active-color);
   border-radius: 50%;
   width: 28px;
   height: 28px;
+}
+
+@media screen and (min-width: 375px) {
+  .shopping-close-btn {
+    top: 14px;
+    right: 14px;
+  }
 }
 
 @media screen and (min-width: 768px) {
