@@ -75,8 +75,8 @@
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   /* max-width: 800px; */
-  max-width: 335px;
-  width: 100%;
+
+  width: 579px;
   height: 762px;
   background-attachment: fixed;
   position: absolute;
@@ -85,8 +85,11 @@
 @media only screen and (max-width: 767px) {
   .modal-content {
     overflow-y: auto;
+    max-width: 335px;
+    width: 100%;
   }
 }
+
 .close-button {
   position: relative;
   top: -380px;
