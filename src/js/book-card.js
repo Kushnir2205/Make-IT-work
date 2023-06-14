@@ -1,5 +1,5 @@
 import { getAllCategory, getTopBooks, getBookById } from './api-get.js';
-import {showLoader, hideLoader } from './loader'
+import { showLoader, hideLoader } from './loader';
 
 const heroRefs = {
   hero: document.querySelector('.bookslist-wrapper'),
@@ -111,7 +111,7 @@ async function getCategoryMarkup(category) {
   heroRefs.catsList.classList.add('category-all-books');
   heroRefs.catsList.classList.remove('categories-prewiews', 'books-list-top');
   heroRefs.catsList.innerHTML = `${categoryBooksMarkup}`;
-
+  scrollTo(top);
   // console.log(categoryBooksMarkup);
 }
 
@@ -173,16 +173,14 @@ async function btnCategoryChanger(e) {
       item.classList.add('title-categories');
     }
   });
-  
+
   try {
-    showLoader()
+    showLoader();
     await getCategoryMarkup(cat);
-    hideLoader()
-    
+    hideLoader();
   } catch (err) {
     console.log(err);
   }
-  
 }
 
 // heroRefs.openCategoryBtn.forEach(btn =>
