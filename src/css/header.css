@@ -125,7 +125,7 @@ a.header-link {
 
 @media screen and (min-width: 768px) {
     .header-item>.header-link-home {
-        margin-right: 16px;
+        margin-right: 1px;
         display: flex;
     }
 }
@@ -337,6 +337,7 @@ input:checked+.slider:before {
 
 .mobile-color {
     color: var(--white-color);
+    margin-right: 54px;
 }
 
 .header-link-home {
