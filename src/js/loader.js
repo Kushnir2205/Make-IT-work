@@ -7,7 +7,7 @@ export function loaderEl () {
             
         loader.addEventListener('transitionend', () => {
         loader.classList.add('is-hidden');
-    //   document.body.removeChild(loader);
+   
     });
   }); 
 }
@@ -24,33 +24,31 @@ export function hideLoader() {
   //  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-
-// window.addEventListener('load', hideLoader);
 /**
   |============================
   | loader-pop-up
   |============================
 */
-const loaderPopUp = document.querySelector('#loader-pop-up')
+// const loaderPopUp = document.querySelector('#loader-pop-up')
 
-export function showLoaderPopUp (event) {
-  loaderPopUp.classList.remove('is-hidden');
-  const x = event.clientX;
-  const y = event.clientY;
+// export function showLoaderPopUp (event) {
+//   loaderPopUp.classList.remove('is-hidden');
+//   const x = event.clientX;
+//   const y = event.clientY;
 
 
-  loader.style.left = `${x}px`;
-  loader.style.top = `${y}px`;
+//   loader.style.left = `${x}px`;
+//   loader.style.top = `${y}px`;
 
  
-  setTimeout(() => {
-    loader.classList.add('hidden');
-  }, 2000);
-}
+//   setTimeout(() => {
+//     loader.classList.add('hidden');
+//   }, 2000);
+// }
 
-export function hideLoaderPopUp() {
-  loaderPopUp.classList.add('is-hidden'); 
-}
+// export function hideLoaderPopUp() {
+//   loaderPopUp.classList.add('is-hidden'); 
+// }
 
 
 

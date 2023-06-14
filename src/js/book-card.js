@@ -1,4 +1,5 @@
 import { getAllCategory, getTopBooks, getBookById } from './api-get.js';
+import {showLoader, hideLoader } from './loader'
 
 const heroRefs = {
   hero: document.querySelector('.bookslist-wrapper'),
@@ -172,8 +173,16 @@ async function btnCategoryChanger(e) {
       item.classList.add('title-categories');
     }
   });
-
-  getCategoryMarkup(cat);
+  
+  try {
+    showLoader()
+    await getCategoryMarkup(cat);
+    hideLoader()
+    
+  } catch (err) {
+    console.log(err);
+  }
+  
 }
 
 // heroRefs.openCategoryBtn.forEach(btn =>
