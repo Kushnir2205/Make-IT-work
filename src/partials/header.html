@@ -10,10 +10,11 @@
             <span class="header__logo-text">Bookshelf</span>
           </a>
         </li>
-        <li class="header-item">
-          <a class="header-link-home menu-link" href="./index.html">HOME</a>
+        <li class="header-item" id="home-header">
+          <a class="header-link-home menu-link  " href="./index.html">HOME</a
+          >
         </li>
-        <li class="header-item">
+        <li class="header-item  " id="shoplist">
           <a class="header-link menu-link" href="./shopping_list.html">
             <span> SHOPPING LIST</span>
             <svg class="svg shopping-icon" width="20" height="20">
@@ -39,12 +40,51 @@
           <use href="./images/sprite.svg#icon-closebtn"></use>
         </svg>
       </button>
-      <button class="button-autor" type="button">
+      <button  class="button-autor "  type="button" id="sing-up">
         Sign up
         <svg class="svg-button" width="20" height="20">
           <use href="./images/sprite.svg#icon-arrow-narrow-right"></use>
         </svg>
       </button>
+      <p id="auth-loader">Loading...
+      </p>
+
+
+
+      <ul class="user-bar js-user-bar" id="down-list">
+        <li class="user-bar__item">
+          <!-- User-bar-btn -->
+          <button
+            class="user-bar-btn js-user-bar-btn"
+            type="button"
+            aria-label="user bar button"
+          >
+            <svg class="user-bar-btn__avatar-icon" width="37" height="37">
+              <use href="./images/sprite.svg#icon-fulluser"></use>
+            </svg>
+            <span class="user-bar-btn__text" id="auth-user"></span>
+            <svg class="user-bar-btn__arrow-icon" width="23" height="26">
+              <use href="./images/sprite.svg#icon-arrowUser-down"></use>
+            </svg>
+          </button>
+          <ul class="dropdown">
+            <li class="dropdown-list__item">
+              <!-- Log-out-btn -->
+              <button
+                class="log-out-btn js-log-out-btn"
+                type="button"
+                aria-label="Log out"
+                id="log-out"
+              >
+                <span class="log-out-btn__text">Log out</span>
+                <!-- <svg class="log-out-btn__icon" width="20" height="20">
+                  <use href="./images/icons.svg#golder-arrow-right"></use>
+                </svg> -->
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </header>
