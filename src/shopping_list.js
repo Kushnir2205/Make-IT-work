@@ -25,7 +25,11 @@ function updateBasketDisplay(page) {
     emptyList.style.display = 'none';
     const displayedItems = getDisplayedItems(localStorageBook, page);
     createBookCards(displayedItems);
-    createPagination(localStorageBook.length, page);
+    if (localStorageBook.length > 3) {
+      createPagination(localStorageBook.length, page);
+    } else {
+      paginationContainer.classList.add('is-hidden');
+    }
   } else {
     emptyList.style.display = 'block';
     paginationContainer.classList.add('is-hidden');
