@@ -60,6 +60,10 @@
   color: #ffffff;
 }
 
+.dark .shop-shoppingList-img1 {
+  filter: grayscale(100%) invert(100%);
+}
+
 .dark .modal-content {
   background-color: #202024;
   color: #ffffff;
@@ -75,7 +79,7 @@
 }
 
 .dark .hr-mob {
-  fill: #ffff;
+  filter: invert(100%);
 }
 
 .dark .modal-content {
@@ -87,10 +91,9 @@
 }
 
 .dark .button-burger {
-  background-color: #eac645;
-  fill: #ffffff;
+  filter: invert(100%);
 }
 
 .dark .button-burger-close {
-  background-color: #eac645;
+  filter: invert(100%);
 }
