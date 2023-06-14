@@ -42,9 +42,6 @@
 .dark .item:hover {
   color: #eac645;
 }
-/* .dark .svg-mobail {
-  color: #ffffff;
-} */
 
 .dark .btn-loadmore {
   background-color: #202024;
@@ -53,6 +50,14 @@
 
 .dark .shopping-title-card {
   color: #ffffff;
+}
+
+.dark .shopping-icon {
+  fill: #ffffff;
+}
+
+.dark .shopping-text {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .dark .shopping-desc-card {
@@ -83,10 +88,6 @@
 
 .dark .book-description {
   color: #ffffff;
-}
-
-.dark .shopping-text {
-  color: rgba(255, 255, 255, 0.6);
 }
 
 .dark .button-burger {

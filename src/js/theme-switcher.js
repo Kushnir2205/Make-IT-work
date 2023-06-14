@@ -11,7 +11,7 @@ function clickHandler() {
     localStorage.setItem('theme', 'light');
   }
 }
-console.log(localStorage.getItem('theme'));
+// console.log(localStorage.getItem('theme'));
 themeSwitcher.addEventListener('click', clickHandler);
 
 window.onload = checkTheme();
