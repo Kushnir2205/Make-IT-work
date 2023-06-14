@@ -92,8 +92,10 @@
 
 .dark .button-burger {
   filter: invert(100%);
+  background-color: transparent;
 }
 
 .dark .button-burger-close {
   filter: invert(100%);
+  background-color: transparent;
 }
