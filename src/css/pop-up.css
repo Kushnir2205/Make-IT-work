@@ -52,12 +52,14 @@
   background: rgba(17, 17, 17, 0.4);
   display: none;
   backdrop-filter: blur(15px);
+  overflow: hidden;
 }
 
 .modal-active {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .modal-content {
@@ -66,12 +68,16 @@
   border-radius: 18px;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  max-width: 800px;
-  width: 80%;
+  /* max-width: 800px; */
+  width: 335px;
   height: 762px;
-  overflow-y: hidden;
   background-attachment: fixed;
   position: absolute;
+}
+@media only screen and (max-width: 767px) {
+  .modal-content {
+    overflow-y: auto;
+  }
 }
 .close-button {
   position: relative;
@@ -255,6 +261,7 @@ al {
 .modal-active {
   opacity: 1;
   visibility: visible;
+  overflow-y: hidden;
 }
 
 @keyframes modalFadeIn {
@@ -276,6 +283,30 @@ al {
   opacity: 0;
   animation: contentFadeIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
+@media only screen and (max-width: 767px) {
+  .hr-mob {
+    top: 29px;
+    right: 103px;
+  }
+}
+/* @media only screen and (max-width: 600px) {
+  .hr-mob {
+    top: 26px;
+    right: 56px;
+  }
+}
+@media only screen and (max-width: 510px) {
+  .hr-mob {
+    top: 27px;
+    right: 82px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .hr-mob {
+    top: 27px;
+    right: 129px;
+  }
+} */
 
 @keyframes contentFadeIn {
   0% {

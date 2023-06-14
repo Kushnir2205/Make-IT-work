@@ -114,6 +114,7 @@ function renderStats(book) {
   // let imgchop2 = new URL('/src/images/shop2.png', import.meta.url);
   // let imgchop3 = new URL('/src/images/shop3.png', import.meta.url);
 
+  document.body.style.overflow = 'hidden';
   const content = `
     <div class="book-cover-container">
       <img src="${book.book_image}" alt="${book.title}" class="book-cover">
@@ -284,7 +285,9 @@ function addToLocalStorage(
     shop: bookShop,
   });
   localStorage.setItem('bookList', JSON.stringify(bookList));
-  Notiflix.Notify.success('This book was added to your Shopping list!');
+  Notiflix.Notify.success(
+    'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.'
+  );
 }
 
 function removeFromLocalStorage(bookId) {
