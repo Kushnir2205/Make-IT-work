@@ -113,7 +113,6 @@ function renderStats(book) {
   // let imgchop1 = new URL('/src/images/shop1.png', import.meta.url);
   // let imgchop2 = new URL('/src/images/shop2.png', import.meta.url);
   // let imgchop3 = new URL('/src/images/shop3.png', import.meta.url);
-
   const content = `
     <div class="book-cover-container">
       <img src="${book.book_image}" alt="${book.title}" class="book-cover">
