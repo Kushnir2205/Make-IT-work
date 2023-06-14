@@ -284,7 +284,9 @@ function addToLocalStorage(
     shop: bookShop,
   });
   localStorage.setItem('bookList', JSON.stringify(bookList));
-  Notiflix.Notify.success('This book was added to your Shopping list!');
+  Notiflix.Notify.success(
+    'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.'
+  );
 }
 
 function removeFromLocalStorage(bookId) {
