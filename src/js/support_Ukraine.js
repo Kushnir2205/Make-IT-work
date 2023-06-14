@@ -127,42 +127,37 @@ function renderingOurLogos() {
 renderingOurLogos(); // Виклик функції renderingOurLogos для виконання рендерингу благодійних фондів у контейнері
 
 
-const swiperButton = document.getElementById('swiper-button');
-const scrollDown = document.getElementById('scrolldown');
-const scrollUp = document.getElementById('scrollup');
-const swiperContainer = document.querySelector('.swiper-div');
-const logoItems = document.querySelectorAll('.logo__item');
 
-let currentIndex = 0 ;
-const scrollDelay = 900;
+const buttonSlider = document.getElementById('scrolldown');
+const buttonSliderUp = document.getElementById('scrollup');
+const supList = document.getElementById('swiper-div');
 
-function handleSwiperClick() {
-  if (swiperContainer.scrollTop === 0) {
-    swiperContainer.scrollTo({
-      top: swiperContainer.scrollHeight,
-      behavior: 'smooth',
-    });
-  } else {
-    swiperContainer.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-} 
 
-function handleSwiperScroll() {
-  if (swiperContainer.scrollTop === 0) {
-    scrollUp.classList.add('is-hidden');
-    scrollDown.classList.remove('is-hidden');
-  } else {
-    scrollUp.classList.remove('is-hidden');
-    scrollDown.classList.add('is-hidden');
-  }
-}
+const listItemHeight = 59;
+let scrollHeight = 0;
 
-scrollDown.addEventListener('click', handleSwiperClick);
-scrollUp.addEventListener('click', handleSwiperClick);
+function showNextFund() {
+  scrollHeight += listItemHeight;
+  supList.scrollTo({
+    top: scrollHeight,
+    behavior: 'smooth' 
+});
+if (supList.scrollHeight - supList.clientHeight < scrollHeight) {
+    buttonSlider.style.display = 'none';
+    buttonSliderUp.style.display = 'flex';
+    scrollHeight = 0;
+}}
 
-swiperContainer.addEventListener('scroll', handleSwiperScroll);
+function showFirstFund() {
+  supList.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+});
+    buttonSlider.style.display = 'flex';
+    buttonSliderUp.style.display = 'none';
+ }
+
+buttonSlider.addEventListener('click', showNextFund);
+buttonSliderUp.addEventListener('click', showFirstFund);
 
 
