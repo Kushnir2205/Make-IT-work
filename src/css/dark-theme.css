@@ -99,3 +99,18 @@
   filter: invert(100%);
   background-color: transparent;
 }
+
+.dark #pagination .tui-page-btn {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.dark #pagination .tui-is-disabled {
+  color: #ffffff;
+}
+
+.dark #pagination .tui-is-selected {
+  background-color: #ffffff;
+  color: #000000;
+  /* border: 1px solid #ffffff; */
+}
