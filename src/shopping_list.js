@@ -14,15 +14,18 @@ const booksBasket = document.querySelector('.books-basket');
 const emptyList = document.querySelector('.shopping-empty');
 const paginationContainer = document.querySelector('.js-tui-pagination');
 
-updateBasketDisplay();
+const localStorageBook = JSON.parse(localStorage.getItem('bookList'));
+let currentPage = 1;
+let pagination;
 
-function updateBasketDisplay() {
-    const bookInfo = JSON.parse(localStorage.getItem('bookList'));
-    if (bookInfo && bookInfo.length > 0) {
+updateBasketDisplay(currentPage);
+
+function updateBasketDisplay(page) {
+    if (localStorageBook && localStorageBook.length > 0) {
       emptyList.style.display = 'none';
-      const displayedItems = bookInfo.slice(0, 3);
+      const displayedItems = getDisplayedItems(localStorageBook, page);
       createBookCards(displayedItems);
-      createPagination();
+      createPagination(localStorageBook.length, page);
     } else {
       emptyList.style.display = 'block';
       paginationContainer.classList.add('is-hidden');
@@ -81,40 +84,48 @@ const deleteBookBtn = document.querySelectorAll('.shopping-close-btn');
 }
 
 function onDeleteBook() {
-  console.log('click');
     const bookId = this.parentNode.dataset.bookId;
-    const localStorageBook = JSON.parse(localStorage.getItem('bookList'));
   const bookIndex = localStorageBook.findIndex(book => bookId === book.id);
   
 if (bookIndex !== -1) {
     localStorageBook.splice(bookIndex, 1);
     localStorage.setItem('bookList', JSON.stringify(localStorageBook));
-
-    updateBasketDisplay();
+  
+    const newPagination = localStorageBook.length;
+    const totalPages = Math.ceil(newPagination / 3);
+    if (currentPage > totalPages) {
+      currentPage = Math.max(1, currentPage - 1);
+    }
+  
+  updateBasketDisplay(currentPage);
   }
   this.parentNode.remove();
 }
 
-function createPagination() {
-  const bookInfo = JSON.parse(localStorage.getItem('bookList'));
+function createPagination(totalItems, page) {
   const itemsPerPage = 3;
 
   const paginationOptions = {
-  totalItems: bookInfo.length,
+  totalItems: totalItems,
   itemsPerPage: itemsPerPage,
   visiblePages: 3,
-  page: 1,
-};
+  page: page,
+  };
 
-  const pagination = new Pagination(paginationContainer, paginationOptions);
+  pagination = new Pagination(paginationContainer, paginationOptions);
   
   paginationContainer.classList.remove('is-hidden');
 
   pagination.on('afterMove', (eventData) => {
-    const currentPage = eventData.page;
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const displayedItems = bookInfo.slice(startIndex, endIndex);
+    currentPage = eventData.page;
+    const displayedItems = getDisplayedItems(localStorageBook, currentPage);
     createBookCards(displayedItems);
   })
+}
+
+function getDisplayedItems(bookInfo, page) {
+  const itemsPerPage = 3;
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  return bookInfo.slice(startIndex, endIndex);
 }
