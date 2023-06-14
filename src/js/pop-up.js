@@ -113,6 +113,7 @@ function renderStats(book) {
   // let imgchop1 = new URL('/src/images/shop1.png', import.meta.url);
   // let imgchop2 = new URL('/src/images/shop2.png', import.meta.url);
   // let imgchop3 = new URL('/src/images/shop3.png', import.meta.url);
+  document.body.style.overflow = 'hidden';
   const content = `
     <div class="book-cover-container">
       <img src="${book.book_image}" alt="${book.title}" class="book-cover">
@@ -164,6 +165,7 @@ function renderStats(book) {
       </ul>
     </div>
     <button class="add-to-list-button">Add to Shopping List</button>
+    <p class="hidden text-hidden">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
 
 `;
   const modalContent = document.querySelector('.modal-content');
@@ -249,6 +251,7 @@ function handleButtonClick(
     );
 
     button.textContent = 'Remove from Shopping List';
+
   }
 
   updateShoppingListInfo();
@@ -283,6 +286,9 @@ function addToLocalStorage(
     shop: bookShop,
   });
   localStorage.setItem('bookList', JSON.stringify(bookList));
+  document.querySelector('.hidden').classList.remove('text-hidden');
+
+
   Notiflix.Notify.success('This book was added to your Shopping list!');
 }
 
@@ -290,6 +296,8 @@ function removeFromLocalStorage(bookId) {
   const bookList = getBookListFromLocalStorage();
   const updatedList = bookList.filter(item => item.id !== bookId);
   localStorage.setItem('bookList', JSON.stringify(updatedList));
+  document.querySelector('.hidden').classList.add('text-hidden');
+
   Notiflix.Notify.warning('This book was removed from your Shopping list!');
 }
 

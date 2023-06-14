@@ -133,6 +133,10 @@
   list-style: none;
   gap: 20px;
 }
+.text-hidden {
+  display: none;
+  color: aqua;
+}
 
 .book-cover {
   width: 100%;
