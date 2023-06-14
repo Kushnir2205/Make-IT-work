@@ -114,6 +114,7 @@ function renderStats(book) {
   // let imgchop2 = new URL('/src/images/shop2.png', import.meta.url);
   // let imgchop3 = new URL('/src/images/shop3.png', import.meta.url);
 
+  document.body.style.overflow = 'hidden';
   const content = `
     <div class="book-cover-container">
       <img src="${book.book_image}" alt="${book.title}" class="book-cover">

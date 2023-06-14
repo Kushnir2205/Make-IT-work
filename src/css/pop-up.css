@@ -52,12 +52,14 @@
   background: rgba(17, 17, 17, 0.4);
   display: none;
   backdrop-filter: blur(15px);
+  overflow: hidden;
 }
 
 .modal-active {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .modal-content {
@@ -259,6 +261,7 @@ al {
 .modal-active {
   opacity: 1;
   visibility: visible;
+  overflow-y: hidden;
 }
 
 @keyframes modalFadeIn {
