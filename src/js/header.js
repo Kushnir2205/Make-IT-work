@@ -57,7 +57,8 @@ const headerLinkShoppingList = document.querySelector(".header-link");
 
 headerLinkHome.classList.add("current");
 
-const activateHomeLink = () => {
+const activateHomeLink = (event) => {
+
   headerLinkHome.classList.add("current");
   headerLinkShoppingList.classList.remove("current");
 };
