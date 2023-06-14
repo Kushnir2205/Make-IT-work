@@ -9,9 +9,7 @@ function closeModal() {
   modal.classList.remove('modal-active');
   document.body.style.overflow = 'auto';
 }
-
 contentLoad();
-// ??????????();
 
 const ulBooksList = document.querySelector('.categories-prewiews');
 const ulBooksListTop = document.querySelectorAll('.books-list-top');
@@ -303,12 +301,12 @@ function updateShoppingListInfo() {
   const shoppingListInfo = document.querySelector('.shopping-list-info');
 }
 
-const closeButton = document.querySelector('.close-mob'); // Закриття модального вікна при натисканні на кнопку закриття
+const closeButton = document.querySelector('.close-mob');
 closeButton.addEventListener('click', () => {
   closeModal();
 });
 
-const modalBackground = document.querySelector('.modal'); // Закриття модального вікна при натисканні за межами вікна
+const modalBackground = document.querySelector('.modal');
 modalBackground.addEventListener('click', event => {
   if (event.target === modalBackground) {
     closeModal();
@@ -316,7 +314,6 @@ modalBackground.addEventListener('click', event => {
 });
 
 document.addEventListener('keydown', event => {
-  // Закриття модального вікна при натисканні Escape
   if (event.key === 'Escape') {
     closeModal();
   }
