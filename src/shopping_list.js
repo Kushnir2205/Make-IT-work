@@ -21,21 +21,32 @@ let pagination;
 updateBasketDisplay(currentPage);
 
 function updateBasketDisplay(page) {
-    if (localStorageBook && localStorageBook.length > 0) {
-      emptyList.style.display = 'none';
-      const displayedItems = getDisplayedItems(localStorageBook, page);
-      createBookCards(displayedItems);
-      createPagination(localStorageBook.length, page);
-    } else {
-      emptyList.style.display = 'block';
-      paginationContainer.classList.add('is-hidden');
-    }
+  if (localStorageBook && localStorageBook.length > 0) {
+    emptyList.style.display = 'none';
+    const displayedItems = getDisplayedItems(localStorageBook, page);
+    createBookCards(displayedItems);
+    createPagination(localStorageBook.length, page);
+  } else {
+    emptyList.style.display = 'block';
+    paginationContainer.classList.add('is-hidden');
+  }
 }
 
 function createBookCards(bookInfo) {
-    const bookCard = bookInfo.map(bookData => {
-        const { author: bookAuthor, description: bookDesc, id: bookId, image: bookUrl, publisher: bookCategory, title: bookTitle, amazon: bookAmazon, apple: bookApple, shop: bookShop } = bookData;
-        return `<div class="shopping-book-card" data-book-id="${bookId}">  
+  const bookCard = bookInfo
+    .map(bookData => {
+      const {
+        author: bookAuthor,
+        description: bookDesc,
+        id: bookId,
+        image: bookUrl,
+        publisher: bookCategory,
+        title: bookTitle,
+        amazon: bookAmazon,
+        apple: bookApple,
+        shop: bookShop,
+      } = bookData;
+      return `<div class="shopping-book-card" data-book-id="${bookId}">  
         <img  
           src="${bookUrl}"  
           alt=""  
@@ -51,7 +62,7 @@ function createBookCards(bookInfo) {
             <p class="shopping-author-card">${bookAuthor}</p>  
             <ul class="shopping-site"> 
               <li> 
-                <a href="${bookAmazon}" target="_blank" rel="noopener noreferrer nofollow"
+                <a href="${bookAmazon}" class = "shop-shoppingList-img1" target="_blank" rel="noopener noreferrer nofollow"
                   ><img src="${amazonSite}" alt="amazon" 
                 /></a> 
               </li> 
@@ -74,30 +85,31 @@ function createBookCards(bookInfo) {
           </svg> 
         </button> 
       </div>`;
-    }).join('');
+    })
+    .join('');
   booksBasket.innerHTML = bookCard;
 
-const deleteBookBtn = document.querySelectorAll('.shopping-close-btn');
+  const deleteBookBtn = document.querySelectorAll('.shopping-close-btn');
   deleteBookBtn.forEach(btn => {
     btn.addEventListener('click', onDeleteBook);
-});
+  });
 }
 
 function onDeleteBook() {
-    const bookId = this.parentNode.dataset.bookId;
+  const bookId = this.parentNode.dataset.bookId;
   const bookIndex = localStorageBook.findIndex(book => bookId === book.id);
-  
-if (bookIndex !== -1) {
+
+  if (bookIndex !== -1) {
     localStorageBook.splice(bookIndex, 1);
     localStorage.setItem('bookList', JSON.stringify(localStorageBook));
-  
+
     const newPagination = localStorageBook.length;
     const totalPages = Math.ceil(newPagination / 3);
     if (currentPage > totalPages) {
       currentPage = Math.max(1, currentPage - 1);
     }
-  
-  updateBasketDisplay(currentPage);
+
+    updateBasketDisplay(currentPage);
   }
   this.parentNode.remove();
 }
@@ -106,21 +118,21 @@ function createPagination(totalItems, page) {
   const itemsPerPage = 3;
 
   const paginationOptions = {
-  totalItems: totalItems,
-  itemsPerPage: itemsPerPage,
-  visiblePages: 3,
-  page: page,
+    totalItems: totalItems,
+    itemsPerPage: itemsPerPage,
+    visiblePages: 3,
+    page: page,
   };
 
   pagination = new Pagination(paginationContainer, paginationOptions);
-  
+
   paginationContainer.classList.remove('is-hidden');
 
-  pagination.on('afterMove', (eventData) => {
+  pagination.on('afterMove', eventData => {
     currentPage = eventData.page;
     const displayedItems = getDisplayedItems(localStorageBook, currentPage);
     createBookCards(displayedItems);
-  })
+  });
 }
 
 function getDisplayedItems(bookInfo, page) {
