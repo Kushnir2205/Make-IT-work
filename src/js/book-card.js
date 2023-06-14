@@ -31,7 +31,7 @@ async function contentLoad() {
                   rel="noopener noreferrer"
                   
                 >
-                  <div class ="img-thumb"><div class ="overlay">Quick View</div><img
+                  <div class ="img-thumb"><div class ="overlay">View</div><img
                     src="${book.book_image}"
                     alt="${book.title}"
                     class="book-photo"
@@ -84,7 +84,7 @@ async function getCategoryMarkup(category) {
                  data-id ="${categoryBook._id}"
                  target="_blank"
                  rel="noopener noreferrer"
-               ><div class ="img-thumb"><div class ="overlay">Quick View</div>
+               ><div class ="img-thumb"><div class ="overlay">View</div>
                  <img
                    src="${categoryBook.book_image}"
                   alt="${categoryBook.title}"

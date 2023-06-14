@@ -1,9 +1,15 @@
+@media only screen and (max-width: 767px) {
+    .aside {
+        padding-top: 100px;
+    }
+}
 @media only screen and (min-width: 768px) and (max-width: 1439px) {
    .aside{
      display: flex;
      gap: 32px;
    }
 }
+
 
 .categories {
     width: 335px;
@@ -18,17 +24,7 @@
     letter-spacing: -0.02em;
 }
 
-.categories::-webkit-scrollbar {
-    width: 8px;
-    height: 114px;
-}
 
-.categories::-webkit-scrollbar-thumb {
-    /* width: 8px;
-    height: 114px; */
-    border-radius: 12px;
-    background-color: var(--scrollbar-color);
-}
 @media only screen and (min-width: 768px) {
    .categories {
         width: 337px;
@@ -48,7 +44,17 @@
 
     }
 }
+.categories::-webkit-scrollbar {
+    width: 8px;
+    height: 114px;
+}
 
+.categories::-webkit-scrollbar-thumb {
+    /* width: 8px;
+    height: 114px; */
+    border-radius: 12px;
+    background-color: var(--scrollbar-color);
+}
 
 .title-categories {
     color: var(--categories-links-active-color);
