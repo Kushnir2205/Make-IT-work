@@ -1,3 +1,4 @@
+import './js/loader.js';
 import './js/api-get.js';
 import './js/all_categories.js';
 import './js/book-card.js';

@@ -1,5 +1,6 @@
 import { getCategoriesList } from './api-get'
-import {getCategoryMarkup, contentLoad} from './book-card'
+import { getCategoryMarkup, contentLoad } from './book-card'
+import {showLoader, hideLoader, showLoaderPopUp, hideLoaderPopUp} from './loader'
 
 // const categories = document.querySelector('.categories')
 // const itemEl = document.querySelector('.item')
@@ -9,6 +10,8 @@ const titleCategories = document.querySelector('.title-categories')
 if (titleCategories !== null) {
     preItemEl = titleCategories
 }
+
+// const loader = document.querySelector('#loader');
 
 // console.log(getCategoriesList());
 
@@ -57,6 +60,7 @@ categoriesListEl()
   |============================
 */
 const onEventCategories = async (event) => {
+     
     event.preventDefault()
     const listItemEl = event.target
     // console.log(listItemEl);
@@ -78,8 +82,11 @@ const onEventCategories = async (event) => {
       |============================
     */
        if (listItemEl.textContent === 'All categories') {
-
-          await contentLoad()
+          
+          
+           showLoader()
+           await contentLoad()          
+           hideLoader()
            return
       
         }
@@ -88,62 +95,19 @@ const onEventCategories = async (event) => {
       | Додає розмітку по обраній категорії
       |============================
     */
-      
-       await getCategoryMarkup(listItemEl.textContent);
-    /**
-      |============================
-      | додає модалку при виборі книги
-      |============================
-    */
-    // const categoryAllBooksEl = document.querySelector('category-all-books')
     
-    //     categoryAllBooksEl?.addEventListener?.('click', event => {
-    //     event.preventDefault();
-
-    //     console.log(event.target);
-
-    //     const modal = document.querySelector('.modal');
-    //     const title = modal.querySelector('.book-title');
-    //     const author = modal.querySelector('.book-author');
-    //     const description = modal.querySelector('.book-description');
-
-    //     const bookLink = event.target.closest('.books-list-img');
-    //     if (!bookLink) return;
-    //     const bookId = bookLink.dataset.id;
-    //     if (!bookId) {
-    //       console.error('data-id attribute not found on the book link');
-    //       return;
-    //     }
-
-    //     modal.classList.add('modal-active');
-
-    //     fetch(`https://books-backend.p.goit.global/books/${bookId}`)
-    //       .then(response => response.json())
-    //       .then(data => {
-    //         const book = data;
-    //         // console.log(book);
-    //         if (book) {
-    //           renderStats(book);
-    //           updateButton(
-    //             bookId,
-    //             book.title,
-    //             book.author,
-    //             book.description,
-    //             book.book_image,
-    //             book.publisher
-    //           );
-    //         } else {
-    //           console.error('The book object is empty.');
-    //         }
-    //       })
-    //       .catch(error => console.error(error));
-    //   });
-
+      showLoader()
+    await getCategoryMarkup(listItemEl.textContent);
+       hideLoader()
+    }
+  catch (err) {
+    hideLoader()
+    console.log(err);
     
-    }
-    catch (err) {
-      console.log(err);
-    }
+  }
+  finally{
+    hideLoader()
+  }
     
     // console.log(data);
     // return getCategoryMarkup(data)
