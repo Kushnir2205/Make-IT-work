@@ -108,7 +108,7 @@
 /* MOBILE */
 @media screen and (min-width: 320px) and (max-width: 374px){
 .support-container {
-  width: 356px;
+  width: 320px;
   height: 490px;
   padding-top: 24px;
   padding-bottom: 20px;
@@ -117,6 +117,7 @@
   background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
+  margin-bottom: 40px;
 }}
 @media screen and (min-width: 375px) and (max-width: 767px) {
     .support-container {
@@ -129,6 +130,7 @@
       background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
       box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
       border-radius: 16px;
+      margin-bottom: 40px;
     }
 
 .support-title {
