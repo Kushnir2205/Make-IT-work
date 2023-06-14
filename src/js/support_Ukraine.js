@@ -111,13 +111,13 @@ function renderingOurLogos() {
     .map(({ title, url, img, img2, width, height }, index) => {
       const paddedIndex = (index + 1).toString().padStart(2, '0');  // Форматування індексу зображення, щоб забезпечити двозначний формат (наприклад, 01, 02, ..., 09, 10)
        // Створення розмітки HTML для кожного благодійного фонду, включаючи зображення з подвійною роздільною здатністю
-      return `<div class="logo__item fund-item"><p class="fundNumber">${paddedIndex}</p>
+      return `<li class="logo__item fund-item"><p class="fundNumber">${paddedIndex}</p>
       <a href="${url}" class="logo__img"  target="_blank" crossorigin="anonymous"  rel="noopener noreferrer nofollow" aria-label="${title}" >
       <picture>
       <source srcset="${img}, ${img2} 2x" />
       <img src="${img}" alt="${title}" loading="lazy" width="${width}" height="${height}" style="filter: brightness(100)">
     </picture>
-      </a></div>
+      </a></li>
   `;
     })
     .join(''); // Об'єднання всіх елементів масиву в один рядок
