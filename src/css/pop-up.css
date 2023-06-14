@@ -8,7 +8,7 @@
 }
 .hr-mob:hover,
 .hr-mob:focus {
-  fill: #4f2ee8;
+  fill: var(--categories-links-active-color);
 }
 
 .close-mob {
@@ -23,7 +23,7 @@
   justify-content: center;
   margin: 25px;
   margin-top: 56px;
-  border: 2px solid #4f2ee8;
+  border: 2px solid var(--categories-links-active-color);
   background-color: transparent;
   border-radius: 40px;
   padding-top: 10px;
@@ -38,8 +38,8 @@
 
 .add-to-list-button:hover,
 .add-to-list-button:focus {
-  color: #ffffff;
-  background-color: #4f2ee8;
+  color: var(--white-color);
+  background-color: var(--categories-links-active-color);
 }
 
 .modal {
@@ -69,7 +69,8 @@
   max-width: 800px;
   width: 80%;
   height: 762px;
-  overflow-y: auto;
+  overflow-y: hidden;
+  background-attachment: fixed;
   position: absolute;
 }
 .close-button {
@@ -93,31 +94,29 @@
   letter-spacing: -0.04em;
   text-align: left;
 
-  line-height: 1.16;
+  line-height: 1.13;
   color: var(--black-color);
   margin-top: 14px;
   margin-left: 4px;
 }
 .book-author {
-  font-family: DM Sans;
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.04em;
   text-align: left;
 
-  line-height: 1.28;
-  color: var(--books-title-color);
+  line-height: 1.16;
+  color: #b4afaf;
   margin-top: 14px;
   margin-left: 4px;
   margin-bottom: 18px;
 }
 
 .book-description {
-  font-family: DM Sans;
   font-weight: 400;
   letter-spacing: -0.04em;
-  text-align: left;
+  text-align: start;
   font-size: 14px;
 
   line-height: 1.28;
@@ -127,6 +126,14 @@
   margin-bottom: 22px;
   margin-left: 4px;
 }
+
+.box-shoppingList-shop {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+}
+
 .book-cover {
   width: 100%;
   width: 100%;
@@ -142,6 +149,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.shop-shoppingList-img1,
+.shop-shoppingList-img2 {
+  filter: grayscale(1);
 }
 
 .modal-content {
@@ -190,11 +202,11 @@
     font-size: 14px;
   }
   .add-to-list-button {
-    padding: 12px 120px;
+    padding: 12px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 180px;
+    margin-top: auto;
   }
 
   .modal-text {
@@ -222,8 +234,10 @@
     height: 18px;
     fill: var(--black-color);
     position: absolute;
-    top: 20px;
-    right: 95px;
+    top: 30px;
+    right: 105px;
+    animation: scale-in-center 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 600ms
+      both;
   }
   .hr-mob:hover,
   .hr-mob:focus {
@@ -274,3 +288,13 @@ al {
   }
 }
 
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

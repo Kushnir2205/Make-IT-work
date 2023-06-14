@@ -96,7 +96,7 @@ const pngSupport = [
 const forLogoDiv = document.querySelector('.forLogoDiv'); // Отримання посилання на елемент з класом 'logoContainer' у документі
 
 function makeImagesWhite() {
-  const logoImages = document.querySelectorAll('logo__img'); // Отримання всіх зображень з класом 'logo__img'
+  const logoImages = document.querySelectorAll('.logo__img'); // Отримання всіх зображень з класом 'logo__img'
 
   logoImages.forEach((image) => {
     image.style.filter = 'brightness(100)'; // Встановлення кольорового фільтру 'brightness(100)' для зображень
@@ -127,14 +127,42 @@ function renderingOurLogos() {
 renderingOurLogos(); // Виклик функції renderingOurLogos для виконання рендерингу благодійних фондів у контейнері
 
 
-const logoContainer = document.querySelector('.forLogoDiv'); // Отримання посилання на елемент з класом 'forLogoDiv'
-const scrollButton = document.querySelector('.swiper-button-next'); // Отримання посилання на елемент з класом 'swiper-button-next' у документі
+const swiperButton = document.getElementById('swiper-button');
+const scrollDown = document.getElementById('scrolldown');
+const scrollUp = document.getElementById('scrollup');
+const swiperContainer = document.querySelector('.swiper-div');
+const logoItems = document.querySelectorAll('.logo__item');
 
-scrollButton.addEventListener('click', () => {
-  const firstLogoItem = logoContainer.firstElementChild; // Отримання першого елемента списку
-  logoContainer.appendChild(firstLogoItem); // Переміщення першого елемента в кінець списку
-});
+let currentIndex = 0 ;
+const scrollDelay = 900;
 
+function handleSwiperClick() {
+  if (swiperContainer.scrollTop === 0) {
+    swiperContainer.scrollTo({
+      top: swiperContainer.scrollHeight,
+      behavior: 'smooth',
+    });
+  } else {
+    swiperContainer.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+} 
 
+function handleSwiperScroll() {
+  if (swiperContainer.scrollTop === 0) {
+    scrollUp.classList.add('is-hidden');
+    scrollDown.classList.remove('is-hidden');
+  } else {
+    scrollUp.classList.remove('is-hidden');
+    scrollDown.classList.add('is-hidden');
+  }
+}
+
+scrollDown.addEventListener('click', handleSwiperClick);
+scrollUp.addEventListener('click', handleSwiperClick);
+
+swiperContainer.addEventListener('scroll', handleSwiperScroll);
 
 

@@ -2,6 +2,9 @@ import './js/header';
 import './js/support_Ukraine';
 import './js/theme-switcher.js';
 
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
 import amazonSite from './images/popup/amazon.png';
 import bookSite from './images/popup/book.png';
 import bookShopSite from './images/popup/bookshop.png';
@@ -9,22 +12,29 @@ import sprite from './images/sprite.svg';
 
 const booksBasket = document.querySelector('.books-basket');
 const emptyList = document.querySelector('.shopping-empty');
+const paginationContainer = document.querySelector('.js-tui-pagination');
 
-updateBasketDisplay();
+const localStorageBook = JSON.parse(localStorage.getItem('bookList'));
+let currentPage = 1;
+let pagination;
 
-function updateBasketDisplay() {
-    const bookInfo = JSON.parse(localStorage.getItem('bookList'));
-    if (bookInfo && bookInfo.length > 0) {
-        emptyList.style.display = 'none';
-        createBookCards(bookInfo);
+updateBasketDisplay(currentPage);
+
+function updateBasketDisplay(page) {
+    if (localStorageBook && localStorageBook.length > 0) {
+      emptyList.style.display = 'none';
+      const displayedItems = getDisplayedItems(localStorageBook, page);
+      createBookCards(displayedItems);
+      createPagination(localStorageBook.length, page);
     } else {
-        emptyList.style.display = 'block';
+      emptyList.style.display = 'block';
+      paginationContainer.classList.add('is-hidden');
     }
 }
 
 function createBookCards(bookInfo) {
     const bookCard = bookInfo.map(bookData => {
-        const { author: bookAuthor, description: bookDesc, id: bookId, image: bookUrl, publisher: bookCategory, title: bookTitle } = bookData;
+        const { author: bookAuthor, description: bookDesc, id: bookId, image: bookUrl, publisher: bookCategory, title: bookTitle, amazon: bookAmazon, apple: bookApple, shop: bookShop } = bookData;
         return `<div class="shopping-book-card" data-book-id="${bookId}">  
         <img  
           src="${bookUrl}"  
@@ -41,17 +51,17 @@ function createBookCards(bookInfo) {
             <p class="shopping-author-card">${bookAuthor}</p>  
             <ul class="shopping-site"> 
               <li> 
-                <a href="" rel="noopener noreferrer nofollow"
+                <a href="${bookAmazon}" target="_blank" rel="noopener noreferrer nofollow"
                   ><img src="${amazonSite}" alt="amazon" 
                 /></a> 
               </li> 
               <li> 
-                <a href="" rel="noopener noreferrer nofollow"
+                <a href="${bookApple}" target="_blank" rel="noopener noreferrer nofollow"
                   ><img src="${bookSite}" alt="book site" 
                 /></a> 
               </li> 
               <li> 
-                <a href="" rel="noopener noreferrer nofollow"
+                <a href="${bookShop}" target="_blank" rel="noopener noreferrer nofollow"
                   ><img src="${bookShopSite}" alt="book shop site" 
                 /></a> 
               </li> 
@@ -65,24 +75,57 @@ function createBookCards(bookInfo) {
         </button> 
       </div>`;
     }).join('');
-    booksBasket.innerHTML = bookCard;
-}
+  booksBasket.innerHTML = bookCard;
 
 const deleteBookBtn = document.querySelectorAll('.shopping-close-btn');
+  deleteBookBtn.forEach(btn => {
+    btn.addEventListener('click', onDeleteBook);
+});
+}
 
 function onDeleteBook() {
     const bookId = this.parentNode.dataset.bookId;
-    const localStorageBook = JSON.parse(localStorage.getItem('bookList'));
-    const bookIndex = localStorageBook.findIndex(book => bookId === book.id);
+  const bookIndex = localStorageBook.findIndex(book => bookId === book.id);
+  
+if (bookIndex !== -1) {
     localStorageBook.splice(bookIndex, 1);
     localStorage.setItem('bookList', JSON.stringify(localStorageBook));
-    this.parentNode.remove();
-    if (!localStorageBook.length > 0) {
-        emptyList.style.display = 'block';
+  
+    const newPagination = localStorageBook.length;
+    const totalPages = Math.ceil(newPagination / 3);
+    if (currentPage > totalPages) {
+      currentPage = Math.max(1, currentPage - 1);
     }
+  
+  updateBasketDisplay(currentPage);
+  }
+  this.parentNode.remove();
 }
 
-deleteBookBtn.forEach(btn => {
-    btn.addEventListener('click', onDeleteBook);
-});
+function createPagination(totalItems, page) {
+  const itemsPerPage = 3;
 
+  const paginationOptions = {
+  totalItems: totalItems,
+  itemsPerPage: itemsPerPage,
+  visiblePages: 3,
+  page: page,
+  };
+
+  pagination = new Pagination(paginationContainer, paginationOptions);
+  
+  paginationContainer.classList.remove('is-hidden');
+
+  pagination.on('afterMove', (eventData) => {
+    currentPage = eventData.page;
+    const displayedItems = getDisplayedItems(localStorageBook, currentPage);
+    createBookCards(displayedItems);
+  })
+}
+
+function getDisplayedItems(bookInfo, page) {
+  const itemsPerPage = 3;
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  return bookInfo.slice(startIndex, endIndex);
+}

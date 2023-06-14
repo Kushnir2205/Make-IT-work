@@ -134,10 +134,11 @@
   overflow: hidden;
   /* transition: ; */
   margin-bottom: 14px;
-  transition-duration: 500ms;
+  /* transition-duration: 500ms; */
 }
 
-.img-thumb:hover .overlay {
+.img-thumb:hover .overlay,
+.img-thumb:focus .overlay {
   transform: translateY(0);
 }
 
@@ -153,10 +154,65 @@
   width: 100%;
   height: 70px;
 
-  color: #ffffff;
+  color: var(--black-color);
   background: #eac645;
   border-radius: 0px 0px 8px 8px;
   transition-duration: 500ms;
 
   transform: translateY(100%);
+}
+
+/* .btn-loadmore:hover {
+  background-color: var(--categories-links-active-color);
+  color: var(--autorization-form-btn-text-color);
+  transition-delay: 500ms;
+}
+
+.btn-loadmore:hover:before {
+  transform: scaleX(1);
+  background-color: #000000;
+} */
+
+.btn-loadmore {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  transition-duration: 500ms;
+}
+
+.btn-loadmore:hover,
+btn-loadmore:focus {
+  background-color: var(--categories-links-active-color);
+  color: var(--autorization-form-btn-text-color);
+}
+
+/* .btn-loadmore::after {
+  /* Initial state 
+  width: 0;
+  left: 50%;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-property: width, left; Add transition property for smoother effect 
+  transition-duration: 400ms;
+}
+.btn-loadmore:hover::after,
+.btn-loadmore:focus::after {
+  position: absolute;
+  margin-top: 3px;
+  left: 25%;
+  content: '';
+  width: 50%;
+  height: 3px;
+  background-color: var(--autorization-form-btn-text-color);
+  border-radius: 8px;
+  transition-duration: 400ms;
+
+   transform: translateX(100%); 
+
+  display: block;
+} */
+body.dark .btn-loadmore:hover,
+btn-loadmore:focus {
+  background-color: var(--categories-links-active-color);
+  color: var(--autorization-form-btn-text-color);
 }

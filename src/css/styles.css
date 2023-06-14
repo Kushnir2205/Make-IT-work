@@ -1,3 +1,4 @@
+@import url('./loader.css');
 @import url('./base.css');
 @import url('./all_categories.css');
 @import url('./book-card.css');
@@ -6,3 +7,5 @@
 @import url('./shopping-list.css');
 @import url('./support_Ukraine.css');
 @import url('./dark-theme.css');
+@import url('./scroll-up.css');
+
