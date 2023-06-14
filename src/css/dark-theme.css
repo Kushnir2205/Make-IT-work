@@ -15,10 +15,6 @@
   color: #ffffff;
   fill: #ffffff;
 }
-/* .dark .menu-link:hover {
-  fill: #111111;
-  color: #111111;
-} */
 
 .dark .menu-link .current {
   fill: #111111;
@@ -42,9 +38,6 @@
 .dark .item:hover {
   color: #eac645;
 }
-/* .dark .svg-mobail {
-  color: #ffffff;
-} */
 
 .dark .btn-loadmore {
   background-color: #202024;
@@ -55,8 +48,20 @@
   color: #ffffff;
 }
 
+.dark .shopping-icon {
+  fill: #ffffff;
+}
+
+.dark .shopping-text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .dark .shopping-desc-card {
   color: #ffffff;
+}
+
+.dark .shop-shoppingList-img1 {
+  filter: grayscale(100%) invert(100%);
 }
 
 .dark .modal-content {
@@ -74,7 +79,7 @@
 }
 
 .dark .hr-mob {
-  fill: #ffff;
+  filter: invert(100%);
 }
 
 .dark .modal-content {
@@ -85,15 +90,10 @@
   color: #ffffff;
 }
 
-.dark .shopping-text {
-  color: rgba(255, 255, 255, 0.6);
-}
-
 .dark .button-burger {
-  background-color: #eac645;
-  fill: #ffffff;
+  filter: invert(100%);
 }
 
 .dark .button-burger-close {
-  background-color: #eac645;
+  filter: invert(100%);
 }
