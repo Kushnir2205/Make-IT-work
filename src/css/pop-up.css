@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   margin: 25px;
-  margin-top: 56px;
+  margin-top: 56px; 
   border: 2px solid var(--categories-links-active-color);
   background-color: transparent;
   border-radius: 18px;
@@ -134,8 +134,21 @@
   gap: 20px;
 }
 .text-hidden {
+  width: 324px;
+  height: 28px; 
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: rgba(17, 17, 17, 0.5);
+  margin: 0 127px 40px 128px;
+  
+}
+
+.hidden {
   display: none;
-  color: aqua;
 }
 
 .book-cover {
@@ -212,6 +225,7 @@
     justify-content: center;
     align-items: center;
     margin-top: auto;
+    margin-bottom: 8px;
   }
 
   .modal-text {
