@@ -12,7 +12,7 @@
 
 
 .categories {
-    width: 335px;
+    max-width: 335px;
     height: 228px;
     margin-bottom: 40px;
 
@@ -50,8 +50,6 @@
 }
 
 .categories::-webkit-scrollbar-thumb {
-    /* width: 8px;
-    height: 114px; */
     border-radius: 12px;
     background-color: var(--scrollbar-color);
 }

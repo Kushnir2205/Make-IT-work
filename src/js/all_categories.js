@@ -1,6 +1,6 @@
 import { getCategoriesList } from './api-get'
 import { getCategoryMarkup, contentLoad } from './book-card'
-import {showLoader, hideLoader, showLoaderPopUp, hideLoaderPopUp} from './loader'
+import {showLoader, hideLoader} from './loader'
 
 
 const categoriesList = document.querySelector('.categories-list')
@@ -47,7 +47,7 @@ const onEventCategories = async (event) => {
      
     event.preventDefault()
     const listItemEl = event.target
-    // console.log(listItemEl);
+    
     if (listItemEl.nodeName !== 'LI' && listItemEl.nodeName !== 'A') {
         return
     }
@@ -55,7 +55,7 @@ const onEventCategories = async (event) => {
     if (preItemEl !== null) {
         preItemEl.classList.remove('title-categories')
     }
-    // console.dir(event.target);
+    
     listItemEl.classList.add('title-categories')
     preItemEl = listItemEl
   
