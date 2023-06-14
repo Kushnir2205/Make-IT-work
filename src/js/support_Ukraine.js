@@ -127,37 +127,52 @@ function renderingOurLogos() {
 renderingOurLogos(); // Виклик функції renderingOurLogos для виконання рендерингу благодійних фондів у контейнері
 
 
-
 const buttonSlider = document.getElementById('scrolldown');
 const buttonSliderUp = document.getElementById('scrollup');
 const supList = document.getElementById('swiper-div');
 
-
 const listItemHeight = 59;
 let scrollHeight = 0;
+let isFirstClick = true;
+
+
+buttonSliderUp.style.display = 'none';
 
 function showNextFund() {
-  scrollHeight += listItemHeight;
-  supList.scrollTo({
-    top: scrollHeight,
-    behavior: 'smooth' 
-});
-if (supList.scrollHeight - supList.clientHeight < scrollHeight) {
+  if (isFirstClick) {
+    scrollHeight += listItemHeight;
+    supList.scrollTo({
+      top: scrollHeight,
+      behavior: 'smooth'
+    });
+
+    if (supList.scrollHeight - supList.clientHeight < scrollHeight) {
+      buttonSlider.style.display = 'none';
+      buttonSliderUp.style.display = 'flex';
+      isFirstClick = false;
+      scrollHeight = 0;
+    }
+  } else {
+    supList.scrollTo({
+      top: supList.scrollHeight,
+      behavior: 'smooth'
+    });
     buttonSlider.style.display = 'none';
     buttonSliderUp.style.display = 'flex';
+    isFirstClick = false;
     scrollHeight = 0;
-}}
+  }
+}
 
 function showFirstFund() {
   supList.scrollTo({
     top: 0,
     behavior: 'smooth'
-});
-    buttonSlider.style.display = 'flex';
-    buttonSliderUp.style.display = 'none';
- }
+  });
+  buttonSlider.style.display = 'flex';
+  buttonSliderUp.style.display = 'none';
+  isFirstClick = true;
+}
 
 buttonSlider.addEventListener('click', showNextFund);
 buttonSliderUp.addEventListener('click', showFirstFund);
-
-
