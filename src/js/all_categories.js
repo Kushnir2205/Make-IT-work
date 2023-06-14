@@ -2,29 +2,13 @@ import { getCategoriesList } from './api-get'
 import { getCategoryMarkup, contentLoad } from './book-card'
 import {showLoader, hideLoader, showLoaderPopUp, hideLoaderPopUp} from './loader'
 
-// const categories = document.querySelector('.categories')
-// const itemEl = document.querySelector('.item')
+
 const categoriesList = document.querySelector('.categories-list')
 let preItemEl = null;
 const titleCategories = document.querySelector('.title-categories')
 if (titleCategories !== null) {
     preItemEl = titleCategories
 }
-
-// const loader = document.querySelector('#loader');
-
-// console.log(getCategoriesList());
-
-// getCategoriesList()
-//     .then(({data}) => {
-//         const listsEl = data.map(list => {
-//             return `<li class="item"><a href="">${list.list_name}</a></li>`
-//         }).join('');
-//         console.log(listsEl);
-//         return categoriesList.innerHTML = listsEl
-// }
-
-// ).catch(err => {console.log(err);})
 
 /**
   |============================
@@ -109,9 +93,6 @@ const onEventCategories = async (event) => {
     hideLoader()
   }
     
-    // console.log(data);
-    // return getCategoryMarkup(data)
-
 }
 
 categoriesList.addEventListener('click', onEventCategories)
