@@ -1,3 +1,9 @@
+@media screen and (max-width: 768px) {
+    .shopping-list-section {
+        padding-top: 100px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .shopping-list-section {
         height: 935px;
