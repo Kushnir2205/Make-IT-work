@@ -10,35 +10,33 @@
     overflow-y: hidden;
     background: #4F2EE8;
   }
+
+
   .modal-wrapper{
-  position: relative;
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
+    width: 300px;
+    padding: 40px 20px;
   
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-  
-    color: #f3f3f3;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   
-    background: #f6f6f6;
-    transition: height 0.8s ease;
-    border-radius: 18px;
+    background-color:#f6f6f6;
     border: 2px solid black;
+    border-radius: 18px;
   }
-@media only screen and (min-width: 768px) {
-   .modal-wrapper{
-    width: 579px;
-    padding: 60px 40px 40px;
+
+  @media screen and (min-width: 375px) {
+    .modal-wrapper{width: 335px;
+    padding: 40px 20px;
   }
 }
-
+  @media screen and (min-width: 768px) {
+    .modal-wrapper{
+      width: 579px;
+    padding: 80px 40px 40px;
+  }
+  }
 
   .registration-form,
 .login-form {
@@ -144,6 +142,7 @@
 }
 
 .close-btn-icon{
+stroke: #111111;
   position: absolute;
   top: 24;
   right: 24;
@@ -186,5 +185,11 @@ display: block;
   } */
 }
 #sing-up{
-  display: none;
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 320px) {
+  #sing-up{
+    visibility: visible;
+  }
 }

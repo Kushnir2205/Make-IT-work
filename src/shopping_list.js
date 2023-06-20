@@ -1,6 +1,11 @@
 import './js/header';
 import './js/support_Ukraine';
 import './js/theme-switcher.js';
+import './js/firebase/firebase-config.js'
+import './js/autorization.js';
+import './js/firebase/firebase-autorization.js'
+import './js/user-bar.js'
+
 
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
@@ -50,7 +55,7 @@ function createBookCards(bookInfo) {
         apple: bookApple,
         shop: bookShop,
       } = bookData;
-      return `<div class="shopping-book-card" data-book-id="${bookId}">  
+      return `<li class="shopping-book-card" data-book-id="${bookId}">  
         <img  
           src="${bookUrl}"  
           alt=""  
@@ -88,7 +93,7 @@ function createBookCards(bookInfo) {
             <use href="${sprite}#icon-trash"></use> 
           </svg> 
         </button> 
-      </div>`;
+      </li>`;
     })
     .join('');
   booksBasket.innerHTML = bookCard;

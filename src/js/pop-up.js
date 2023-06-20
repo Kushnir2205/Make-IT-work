@@ -43,7 +43,7 @@ ulBooksList.addEventListener('click', event => {
     .then(response => response.json())
     .then(data => {
       const book = data;
-      // console.log(book);
+
       if (book) {
         renderStats(book);
         updateButton(
@@ -67,7 +67,6 @@ ulBooksList.addEventListener('click', event => {
 ulBooksListTop?.addEventListener?.('click', event => {
   event.preventDefault();
 
-  console.log(event.target);
 
   const modal = document.querySelector('.modal');
   const title = modal.querySelector('.book-title');
@@ -88,7 +87,7 @@ ulBooksListTop?.addEventListener?.('click', event => {
     .then(response => response.json())
     .then(data => {
       const book = data;
-      // console.log(book);
+   
       if (book) {
         renderStats(book);
         updateButton(
@@ -109,9 +108,6 @@ ulBooksListTop?.addEventListener?.('click', event => {
     .catch(error => console.error(error));
 });
 function renderStats(book) {
-  // let imgchop1 = new URL('/src/images/shop1.png', import.meta.url);
-  // let imgchop2 = new URL('/src/images/shop2.png', import.meta.url);
-  // let imgchop3 = new URL('/src/images/shop3.png', import.meta.url);
 
   document.body.style.overflow = 'hidden';
   const content = `
@@ -172,11 +168,11 @@ function renderStats(book) {
 
   const btn = document.querySelector('.add-to-list-button');
   const localStorageBooks = getBookListFromLocalStorage();
-  console.log(localStorageBooks);
+ 
   const localStorageBook = localStorageBooks.some(
     lsb => lsb.title === book.title
   );
-  console.log(localStorageBook);
+ 
   if (localStorageBook) {
     btn.textContent = 'Remove from Shopping List';
   }
@@ -293,7 +289,7 @@ function removeFromLocalStorage(bookId) {
   const bookList = getBookListFromLocalStorage();
   const updatedList = bookList.filter(item => item.id !== bookId);
   localStorage.setItem('bookList', JSON.stringify(updatedList));
-  Notiflix.Notify.warning('This book was removed from your Shopping list!');
+  Notiflix.Notify.info('This book was removed from your Shopping list!');
 }
 
 function updateShoppingListInfo() {

@@ -1,10 +1,14 @@
-const openModalBtn = document.querySelector('.button-autor');
+const openModalBtn = document.querySelector('.qqqqqq');
+const openModalBtnMobile = document.querySelector('.popopo')
 const backDropContent = document.querySelector('.backdrop-form');
 const closeBtn = document.querySelector('.closse-btn');
 const registrationFormWrapper = document.querySelector('.registraion-wrapper');
 const registrationLink = document.querySelector('.registration-link');
 const loginFormWrapper = document.querySelector('.login-form-wrapper');
 const loginLink = document.querySelector('.login-link');
+const mobileMenu = document.querySelector('.mobile-menu.js-menu-container');
+const burgerBtn = document.querySelector('.button-burger');
+const burgerCloseBtn = document.querySelector('.button-burger-close')
 
 export function closeModal() {
   backDropContent.classList.add('invisible');
@@ -22,6 +26,14 @@ function onOpenModalClick(e) {
 }
 
 openModalBtn.addEventListener('click', onOpenModalClick);
+openModalBtnMobile.addEventListener('click', (e) => {
+  onOpenModalClick(e)
+  mobileMenu.classList.remove('is-open');
+  burgerBtn.classList.remove('is-hidden');
+  burgerCloseBtn.classList.add('is-hidden')
+});
+
+
 
 function outsideClick(event) {
   if (event.target === backDropContent) {

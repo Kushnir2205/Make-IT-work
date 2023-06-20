@@ -14,7 +14,7 @@
           <a class="header-link-home menu-link  " href="./index.html">HOME</a
           >
         </li>
-        <li class="header-item  " id="shoplist">
+        <li class="header-item " id="shoplist">
           <a class="header-link menu-link" href="./shopping_list.html">
             <span> SHOPPING LIST</span>
             <svg class="svg shopping-icon" width="20" height="20">
@@ -40,7 +40,7 @@
           <use href="./images/sprite.svg#icon-closebtn"></use>
         </svg>
       </button>
-      <button  class="button-autor "  type="button" id="sing-up">
+      <button  class="button-autor mobile-button-autor qqqqqq"  type="button" id="sing-up">
         Sign up
         <svg class="svg-button" width="20" height="20">
           <use href="./images/sprite.svg#icon-arrow-narrow-right"></use>
@@ -51,7 +51,7 @@
 
 
 
-      <ul class="user-bar js-user-bar" id="down-list">
+      <ul class="user-bar js-user-bar user-bar-mobile" id="down-list">
         <li class="user-bar__item">
           <!-- User-bar-btn -->
           <button
@@ -77,9 +77,9 @@
                 id="log-out"
               >
                 <span class="log-out-btn__text">Log out</span>
-                <!-- <svg class="log-out-btn__icon" width="20" height="20">
-                  <use href="./images/icons.svg#golder-arrow-right"></use>
-                </svg> -->
+                <svg class="log-out-arrow" width="20" height="20">
+                  <use href="./images/sprite.svg#icon-arrow-narrow-right"></use>
+                </svg>
               </button>
             </li>
           </ul>
@@ -90,25 +90,31 @@
 </header>
 <!-- mobail-menu -->
 <div class="mobile-menu js-menu-container">
+  <button  class="button-autor mobile-button-autor popopo"  type="button" id="sing-up">
+    Sign up
+    <svg class="svg-button" width="20" height="20">
+      <use href="./images/sprite.svg#icon-arrow-narrow-right"></use>
+    </svg>
+  </button>
   <ul class="mobile-nav-list">
     <li class="mobile-nav-item">
       <a
         class="header-link-home menu-link-mobail mobile-color header-link-home-modal"
-        href="./index.html"
+        href="./index.html" id="home-header-mobile"
         >HOME</a
       >
     </li>
-    <li class="mobile-nav-item">
+    <li class="mobile-nav-item" >
       <a
         class="header-link-shoppingcart menu-link-mobail"
-        href="./shopping_list.html"
+        href="./shopping_list.html" id="shoplist-mobile"
       >
         <span>SHOPPING LIST</span>
         <svg class="svg-mobail" width="20" height="20">
           <use href="./images/sprite.svg#icon-shoppingcart"></use>
         </svg>
       </a>
-      <button class="btn-autor" type="button">
+      <button class="btn-autor is-hidden log-out-mobile" type="button">
         Log out
         <svg class="svg-btn-autor" width="20" height="20">
           <use href="./images/sprite.svg#icon-arrow-narrow-right"></use>

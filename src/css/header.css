@@ -109,7 +109,7 @@ a.header-link {
 
 
 .svg {
-    fill: #111111;
+    stroke: #111111;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -380,7 +380,7 @@ input:checked+.slider:before {
 
 .menu-link-mobail {
     position: relative;
-    display: inline-flex;
+    display: flex;
     border-radius: 36px;
    
 }
@@ -451,12 +451,29 @@ input:checked+.slider:before {
     margin-left: 12px;
     color: #FFFFFF;
 }
+@media only screen and (min-width: 320px) and (max-width: 767px){
+    .qqqqqq{
+   display: none !important;
+  }
+}
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width:768px){
     .button-autor {
-        display: none;
+       visibility: hidden;
+    
     }
 }
+
+@media only screen and (min-width: 320px) and (max-width:768px){
+    .mobile-button-autor{
+      position: absolute;
+
+        left: 0;
+        top:15%;
+      visibility: visible;
+ }
+}
+
 
 @media screen and (min-width: 768px) {
     .button-autor {
@@ -464,9 +481,11 @@ input:checked+.slider:before {
     }
 }
 
+
+
 .svg-button {
-    /* margin-left: 89px; */
-        margin-left: auto;
+/* margin-top: -15px; ; */
+ margin-left: auto;
 }
 
 .btn-autor {
@@ -477,7 +496,7 @@ input:checked+.slider:before {
     border-radius: 18px;
  
 position: fixed;
-  bottom: 0;
+bottom: 0;
     left: 0;
     z-index: 1;
     font-family: 'DM Sans';
@@ -515,6 +534,8 @@ body.menu-open {
     display: none;
 
   }
+
+
   @media screen and (min-width: 768px) {
     .user-bar{
         position: relative;
@@ -538,6 +559,11 @@ body.menu-open {
     border-radius: 36px;
     cursor: pointer;
   }
+  @media only screen and (min-width: 320px) and (max-width: 767px){
+    .user-bar{
+        display: none;
+  }
+}
   
   .user-bar-btn__avatar-icon {
     margin-right: 9px;
@@ -604,7 +630,26 @@ body.menu-open {
     letter-spacing: -0.04em;
     color:#111111;
   }
-  
-#down-list, #home-header, #shoplist{
+
+#home-header, #shoplist{
     display: none;
+}
+@media only screen and (min-width: 320px) and (max-width:767px){
+    .user-bar-mobile{
+        display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+    .user-bar-mobile{
+        display: none;
+  }
+}
+.log-out-arrow{
+    margin-left: auto;
+}
+
+.closse-btn{
+    background-color: transparent;
+stroke: #fff;
 }
