@@ -253,7 +253,7 @@
   .hr-mob {
     width: 18px;
     height: 18px;
-    fill: var(--black-color);
+    stroke: var(--black-color);
     position: absolute;
     top: 30px;
     right: 105px;

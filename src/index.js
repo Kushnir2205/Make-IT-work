@@ -7,3 +7,7 @@ import './js/pop-up.js';
 import './js/support_Ukraine.js';
 import './js/theme-switcher.js';
 import './js/scroll-up.js';
+import './js/autorization.js';
+import './js/firebase/firebase-config.js'
+import './js/firebase/firebase-autorization.js'
+import './js/user-bar.js'

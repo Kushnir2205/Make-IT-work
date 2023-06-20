@@ -12,7 +12,6 @@ const heroRefs = {
 async function contentLoad() {
   const resp = await getTopBooks();
   const data = resp.data;
-  console.log(data);
   const homeMarkup = data
     .map(category => {
       const books = category.books.slice(0, 5); // Обмежуємо кількість книг до 5
@@ -65,14 +64,9 @@ async function contentLoad() {
   }, 0);
 }
 
-//contentLoad();
-
-//creating a markup of category
-
 async function getCategoryMarkup(category) {
   const resp = await getAllCategory(category);
   const data = resp.data;
-  console.log(data);
   if (data.length === 0) {
     return alert('Sorry, we havenot found books in this category');
   }
@@ -101,8 +95,7 @@ async function getCategoryMarkup(category) {
 
   const h1arr = category.split(' ');
   const lastWord = h1arr.splice(h1arr.length - 1, 1).join('');
-  // console.log(h1arr);
-  // console.log(lastWord);
+
   document.querySelector(
     '.hero-heading'
   ).innerHTML = `<h1 class="hero-heading">${
@@ -112,42 +105,9 @@ async function getCategoryMarkup(category) {
   heroRefs.catsList.classList.remove('categories-prewiews', 'books-list-top');
   heroRefs.catsList.innerHTML = `${categoryBooksMarkup}`;
   scrollTo(top);
-  // console.log(categoryBooksMarkup);
 }
 
-// async function btnCategoryChanger(e) {
-//   console.log(2);
-
-//   // e.preventDefault();
-//   if (!e.target.classList.contains('btn-loadmore')) {
-//     return;
-//   }
-//   const cat = e.currentTarget.parentNode.firstElementChild.textContent;
-//   console.log(cat);
-
-//   const activeTitle = document.querySelector('.title-categories');
-//   activeTitle.classList.remove('title-categories');
-//   const listItems = document.querySelectorAll('.item');
-//   listItems.forEach(item => {
-//     item.addEventListener('click', () =>
-//       activeTitle.classList.remove('.title-categories')
-//     );
-//     if (item.firstElementChild.textContent === cat) {
-//       item.classList.add('title-categories');
-//     }
-//   });
-//   // const activeTitle = document.querySelector('.title-categories');
-//   // if (
-//   //   activeTitle.textContent !==
-//   //   document.querySelector('.hero-heading').textContent
-//   // ) {
-//   // activeTitle.classList.remove('title-categories');
-//   // }
-//   console.log(listItems);
-//   getCategoryMarkup(cat);
-// }
 async function btnCategoryChanger(e) {
-  // Remove the class 'title-categories' from the item that has this class
   const activeTitle = document.querySelector('.title-categories');
   if (activeTitle) {
     activeTitle.classList.remove('title-categories');
@@ -158,7 +118,6 @@ async function btnCategoryChanger(e) {
   }
 
   const cat = e.currentTarget.parentNode.firstElementChild.textContent;
-  console.log(cat);
 
   const listItems = document.querySelectorAll('.item');
   listItems.forEach(item => {
@@ -182,10 +141,5 @@ async function btnCategoryChanger(e) {
     console.log(err);
   }
 }
-
-// heroRefs.openCategoryBtn.forEach(btn =>
-//   btn.addEventListener('click', btnCategoryChanger)
-// );
-// document;
 
 export { getCategoryMarkup, contentLoad };

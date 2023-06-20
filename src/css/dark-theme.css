@@ -113,3 +113,28 @@
   color: #000000;
   /* border: 1px solid #ffffff; */
 }
+
+.dark .modal-wrapper{
+background-color: #202024;
+border: 2px solid #F6F6F6;
+}
+
+.dark .dark-auth{
+color: #fff;
+  border: 2px solid #F6F6F6;
+  background-color: #202024;
+}
+.dark .dark-auth::placeholder{
+  color:#F6F6F6;
+}
+.dark .close-btn-icon{
+  stroke: #F6F6F6;
+}
+
+.dark .btn-lib{
+  background-color: #F6F6F6;
+  color:#202024 ;
+}
+.dark .dark-link{
+  color:rgba(246, 246, 246, 0.5);
+}
